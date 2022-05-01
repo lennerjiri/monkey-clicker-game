@@ -7,9 +7,10 @@
 		}"
 	>
 		<div class="body__leftBar__healthBarContainer">
-			<p>HP 10</p>
+			<p>HP {{ bloonHp }}</p>
 			<div
 				class="leftBar__healthBarContainer--health"
+				:style="`width: ${bloonHpPercentage}%`"
 			></div>
 		</div>
 		<div class="body__leftBar__nameContainer">
@@ -18,8 +19,11 @@
 				alt=""
 			/>
 			<div>
-				<p>RED</p>
-				<p>5 / 10</p>
+				<p>{{ bloonRound.name }}</p>
+				<p>
+					{{ this.$store.state.serial }} /
+					{{ bloonRound.serial }}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -29,9 +33,23 @@
 export default {
 	name: 'leftHealth',
 	computed: {
-		health() {
-			// calculate percentage of health left
-			return 100;
+		bloonRound() {
+			return this.$store.state.bloonsRounds[
+				this.$store.state.round
+			];
+		},
+		bloonHp() {
+			return this.$store.state.bloonHp;
+		},
+		bloonHpPercentage() {
+			return (
+				100 -
+				(this.bloonHp * 100) /
+					this.$store.state.bloonsRounds[
+						this.$store.state.round
+					].hp
+			);
+			// + calculate percentage of health left
 		},
 	},
 };

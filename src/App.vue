@@ -73,6 +73,10 @@ export default {
 			}
 		},
 	},
+	created() {
+		const data = require('./assets/data/bloons.json');
+		this.$store.commit('setupData', data);
+	},
 	mounted() {
 		setInterval(this.timeTick1x, 1000);
 		setInterval(this.timeTick2x, 500);

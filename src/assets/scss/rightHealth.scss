@@ -23,7 +23,7 @@
 		transform: skew(30deg);
 		overflow: hidden;
 		display: flex;
-		justify-content: flex-end;
+		justify-content: flex-start;
 
 		.rightBar__healthBarContainer--health {
 			transform: skew(-30deg);
@@ -33,7 +33,7 @@
 				#fb7474,
 				#d51111
 			);
-			margin-right: -15px;
+			margin-left: -15px;
 			height: 100%;
 			width: 50%;
 		}
@@ -44,6 +44,7 @@
 			top: 15px;
 			transform: skew(-30deg);
 			font-size: 1.5rem;
+			z-index: 1;
 		}
 	}
 

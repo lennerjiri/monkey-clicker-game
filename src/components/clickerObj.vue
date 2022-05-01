@@ -2,7 +2,7 @@
 	<div class="body__main">
 		<div
 			class="body__main__bloonContainer"
-			@click="runAnimation(), attack()"
+			@click="click(), runAnimation()"
 		>
 			<img
 				class="body__main__bloonContainer__bloon"
@@ -11,9 +11,12 @@
 				ondragstart="return false;"
 			/>
 			<img
-				:src="explosion ? require(`@/assets/img/animation/boom.gif`) : ``"
+				:src="
+					explosion
+						? require(`@/assets/img/animation/boom.gif`)
+						: ``
+				"
 				class="body__main__bloonContainer__boom"
-				
 				alt=""
 				ondragstart="return false;"
 			/>
@@ -22,7 +25,7 @@
 		<img
 			class="body__main__monk"
 			src="@/assets/img/monks/01.png"
-			@click="runAnimation(), attack()"
+			@click="click(), runAnimation()"
 			alt=""
 			ondragstart="return false;"
 		/>
@@ -54,33 +57,28 @@ export default {
 		runAnimation() {
 			if (!this.$store.state.pause) {
 				this.runningAnimation = true;
-				this.explosion = true;
-
-				// run in few secs
-				setTimeout(() => {
-					this.explosion = false;
-				}, 200);
 			}
 		},
 		restartAnimation() {
 			this.runningAnimation = false;
 		},
 
-		// Attack
-		attack() {
+		// Click
+		click() {
 			if (!this.$store.state.pause) {
-				this.$store.commit(
-					'addCredit',
-					this.attackCredit
-				);
+				if (this.$store.state.bloonHp - 1 === 0) {
+					this.explosion = true;
+
+					// run in few secs
+					setTimeout(() => {
+						this.explosion = false;
+					}, 200);
+				}
+				this.$store.dispatch('click');
 			}
 		},
 	},
-	computed: {
-		attackCredit() {
-			return this.$store.state.attackCredit;
-		},
-	},
+	computed: {},
 };
 </script>
 

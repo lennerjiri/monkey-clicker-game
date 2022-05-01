@@ -1,9 +1,27 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import VuexPersistence from 'vuex-persist';
 
 Vue.use(Vuex);
 
+// presistance
+const vuexLocal = new VuexPersistence({
+	key: 'monkClicker',
+	storage: window.localStorage,
+	reducer: state => ({
+		round: state.round,
+		serial: state.serial,
+		bloonHp: state.bloonHp,
+
+		timeStamp: state.timeStamp,
+		playerHp: state.playerHp,
+
+		cash: state.cash,
+	}),
+});
+
 export default new Vuex.Store({
+	plugins: [vuexLocal.plugin],
 	state: {
 		// panels
 		leftPanelOpen: false,
@@ -22,9 +40,20 @@ export default new Vuex.Store({
 		// cash
 		credit: 0,
 
-		// attack / income per attack
-		attackCredit: 1,
+		// round system
+		bloonsRounds: [],
+
+		// saved in vuex
+		round: 0,
+		serial: 1,
+		bloonHp: 10,
+
+		timeStamp: '',
+		playerHp: 100,
+
+		cash: 0,
 	},
+
 	mutations: {
 		// open | close panels
 		openPanel(state, panel) {
@@ -76,6 +105,25 @@ export default new Vuex.Store({
 		addCredit(state, amount) {
 			state.credit += amount;
 		},
+		setupData(state, bloonsRounds) {
+			state.bloonsRounds = bloonsRounds;
+		},
+
+		// game system control
+		reduceBloonHp(state, amount) {
+			state.bloonHp -= amount;
+		},
+
+		updateBloonHp(state) {
+			state.bloonHp =
+				state.bloonsRounds[state.round].hp;
+			console.log(state.bloonHp);
+		},
+
+		nextSerial(state) {
+			state.serial += 1;
+			console.log(state.serial);
+		},
 	},
 	actions: {
 		// time
@@ -125,6 +173,32 @@ export default new Vuex.Store({
 				context.commit('pause', false);
 			} else {
 				context.commit('pause', true);
+			}
+		},
+		click(context) {
+			const demage = 1;
+			context.commit('reduceBloonHp', demage);
+
+			if (context.state.bloonHp <= 0) {
+				if (
+					context.state.serial + 1 >
+					context.state.bloonsRounds[
+						context.state.round
+					].serial
+				) {
+					if (
+						context.state.round + 1 >
+						context.state.bloonsRounds.length
+					) {
+						// infiniti mode
+					} else {
+						// next round
+					}
+				} else {
+					// load next
+					context.commit('nextSerial');
+					context.commit('updateBloonHp');
+				}
 			}
 		},
 	},
