@@ -1,0 +1,70 @@
+.body__main {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 45%;
+
+	position: relative;
+}
+
+.body__main__bloonContainer {
+	width: 20%;
+	position: relative;
+
+	transition: transform 0.2s ease;
+
+	.body__main__bloonContainer__boom {
+		width: 300%;
+		position: absolute;
+		left: -100%;
+		top: -50%;
+	}
+	.body__main__bloonContainer__bloon {
+		width: 100%;
+	}
+
+	&:hover {
+		cursor: pointer;
+		transform: scale(1.1);
+	}
+	&:active {
+		transform: scale(1.2);
+	}
+}
+
+.body__main__monk {
+	width: 35%;
+	transition: transform 0.2s ease;
+	&:hover {
+		cursor: pointer;
+		transform: scale(1.1);
+	}
+	&:active {
+		transform: scale(1.2);
+	}
+}
+
+.body__main__arrow {
+	position: absolute;
+	right: 15%;
+	top: 50%;
+	height: 2rem;
+	transform: rotate(-170deg);
+	z-index: -1;
+}
+
+.body__main__arrow___animation {
+	animation-name: shoot;
+	animation-duration: 0.1s;
+	animation-timing-function: linear;
+
+	@keyframes shoot {
+		from {
+			right: 15%;
+		}
+		to {
+			right: 75%;
+		}
+	}
+}

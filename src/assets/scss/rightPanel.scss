@@ -1,0 +1,61 @@
+> .body__rightPanelBuildings {
+	position: absolute;
+	right: 0px;
+	height: calc(100% - 5rem);
+	width: 150px;
+	top: 5rem;
+
+	background-color: #c56c40;
+
+	transition: right 200ms ease-in;
+
+	border-left: solid 10px #663220;
+
+	box-sizing: border-box;
+
+	> .body__rightPanelBuildings__slider {
+		position: absolute;
+		top: calc(50% - 0.5em);
+		right: calc(100% + 10px);
+		.material-icons {
+			font-size: 2.5rem;
+		}
+		background: linear-gradient(
+			to left,
+			#1186d5,
+			#53b5f7
+		);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		border: solid 5px #1b2f31;
+		border-top-left-radius: 100%;
+		border-bottom-left-radius: 100%;
+		padding: 1em 0.5em 1em 0.5em;
+
+		font-size: 1.5rem;
+
+		&:hover {
+			cursor: pointer;
+			background: linear-gradient(
+				to right,
+				#1186d5,
+				#53b5f7
+			);
+		}
+	}
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+
+	.body__rightPanelBuildings__build__container {
+		@include selectBox;
+	}
+}
+
+.body__rightPanelUser___hidden {
+	right: -150px;
+}

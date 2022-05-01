@@ -1,0 +1,83 @@
+@import './reset';
+
+@mixin selectBox() {
+	> .selectBox {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		p {
+			font-size: 1.5rem;
+			margin-bottom: 0.5em;
+		}
+		div {
+			width: 4rem;
+			height: 4rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 7px;
+			background-color: #53b5f7;
+			border: solid 5px #1b2f31;
+			img {
+				height: auto;
+				width: 80%;
+			}
+			margin-bottom: 2rem;
+
+			&:hover {
+				cursor: pointer;
+				background-color: #96cdf2;
+			}
+		}
+	}
+}
+
+// body
+body {
+	height: 100vh;
+	min-height: 900px;
+	width: 100vw;
+
+	// turn of select
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+																		supported by Chrome, Edge, Opera and Firefox */
+
+	overflow: hidden;
+
+	position: relative;
+
+	font-family: 'Luckiest Guy', cursive;
+
+	// background img
+	@import './background.scss';
+}
+
+// app
+#app {
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	// nav
+	@import './navigation.scss';
+	// LeftPanel => User Upgrades
+	@import './leftPanel.scss';
+	// RightPanel => Buildings and automations
+	@import './rightPanel.scss';
+	// Left Health Bar
+	@import './leftHealth.scss';
+	// Right Health Bar
+	@import './rightHealth.scss';
+	// Monk in the middle
+	@import './clickerObj.scss';
+}
