@@ -9,14 +9,22 @@ const vuexLocal = new VuexPersistence({
 	key: 'monkClicker',
 	storage: window.localStorage,
 	reducer: state => ({
+		// game info
 		round: state.round,
 		serial: state.serial,
 		bloonHp: state.bloonHp,
+		inifinityMode: state.inifinityMode,
 
 		timeStamp: state.timeStamp,
 		playerHp: state.playerHp,
 
 		cash: state.cash,
+
+		// scores
+		scores: state.scores,
+		infinityMode: state.infinityMode,
+		infinityModeMultiplier:
+			state.infinityModeMultiplier,
 	}),
 });
 
@@ -46,12 +54,20 @@ export default new Vuex.Store({
 		// saved in vuex
 		round: 0,
 		serial: 1,
-		bloonHp: 2,
+		bloonHp: 3,
 
 		timeStamp: '',
 		playerHp: 100,
 
 		cash: 0,
+
+		// bloon control
+		destroyed: false,
+
+		// scoring system
+		scores: [],
+		infinityMode: false,
+		infinityModeMultiplier: 1,
 	},
 
 	mutations: {
@@ -115,8 +131,14 @@ export default new Vuex.Store({
 		},
 
 		updateBloonHp(state) {
-			state.bloonHp =
-				state.bloonsRounds[state.round].hp;
+			if (state.infinityMode) {
+				state.bloonHp =
+					state.bloonsRounds[state.round].hp *
+					state.infinityModeMultiplier;
+			} else {
+				state.bloonHp =
+					state.bloonsRounds[state.round].hp;
+			}
 		},
 
 		nextSerial(state) {
@@ -130,10 +152,32 @@ export default new Vuex.Store({
 		nextRound(state) {
 			state.round += 1;
 		},
+
+		randomRound(state) {
+			state.round = Math.floor(
+				Math.random() * state.bloonsRounds.length
+			);
+			state.infinityModeMultiplier *= 10;
+		},
+
+		// bloon controls
+		bloonDestroyed(state) {
+			state.destroyed = true;
+		},
+		bloonRecharge(state) {
+			state.destroyed = false;
+		},
+		enableInfinity(state) {
+			state.infinityMode = true;
+		},
+		disableInfinity(state) {
+			state.infinityMode = false;
+		},
 	},
 	actions: {
 		// time
 		timeTick(context) {
+			// time
 			if (!context.state.pause) {
 				if (context.state.seconds + 1 > 59) {
 					context.commit('nullSeconds');
@@ -165,6 +209,9 @@ export default new Vuex.Store({
 					context.commit('addSecond');
 				}
 			}
+
+			//  bloon
+			context.commit('bloonRecharge');
 		},
 		changeTimeSpeed(context, speedChange) {
 			if (
@@ -193,13 +240,39 @@ export default new Vuex.Store({
 					].serial
 				) {
 					if (
-						context.state.round + 1 >
+						context.state.round + 2 >
 						context.state.bloonsRounds.length
 					) {
-						// infiniti mode + Victory
+						// if the player enabled infinity mode
+						if (context.state.infinityMode) {
+							// vyhodí random balon s 10000x lepšíma statama
+							context.commit('randomRound');
+							context.commit('updateSerial');
+							context.commit('updateBloonHp');
+						} else {
+							// stop the time
+							context.commit('pause', true);
+
+							/// the menu part
+							// triger vicory panel with stats + restart + top three best scores (time) + add to best scores (do the same for the restart button)
+							context.commit(
+								'enableInfinity'
+							);
+
+							// unpause time
+							context.commit('pause', false);
+							context.commit('randomRound');
+							context.commit('updateSerial');
+							context.commit('updateBloonHp');
+							///
+						}
 					} else {
 						// next round
-						context.commit('nextRound');
+						if (!context.state.infinityMode) {
+							context.commit('nextRound');
+						} else {
+							context.commit('randomRound');
+						}
 						context.commit('updateSerial');
 						context.commit('updateBloonHp');
 					}

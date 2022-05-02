@@ -15,6 +15,10 @@
 				"
 				alt=""
 				ondragstart="return false;"
+				:class="{
+					bloon___visibility:
+						this.$store.state.destroyed,
+				}"
 			/>
 			<img
 				:src="
@@ -71,9 +75,13 @@ export default {
 
 		// Click
 		click() {
-			if (!this.$store.state.pause) {
+			if (
+				!this.$store.state.pause &&
+				!this.$store.state.destroyed
+			) {
 				if (this.$store.state.bloonHp - 1 === 0) {
 					this.explosion = true;
+					this.$store.commit('bloonDestroyed');
 
 					// run in few secs
 					setTimeout(() => {

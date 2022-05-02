@@ -15,7 +15,13 @@
 		</div>
 		<div class="body__leftBar__nameContainer">
 			<img
-				:src="require('@/assets/img/bloons/01.png')"
+				:src="
+					require(`@/assets/img/bloons/${
+						this.$store.state.bloonsRounds[
+							this.$store.state.round
+						].img
+					}`)
+				"
 				alt=""
 			/>
 			<div>
@@ -42,13 +48,26 @@ export default {
 			return this.$store.state.bloonHp;
 		},
 		bloonHpPercentage() {
-			return (
-				100 -
-				(this.bloonHp * 100) /
-					this.$store.state.bloonsRounds[
-						this.$store.state.round
-					].hp
-			);
+			if (this.$store.state.infinityMode) {
+				return (
+					100 -
+					(this.bloonHp * 100) /
+						(this.$store.state.bloonsRounds[
+							this.$store.state.round
+						].hp *
+							this.$store.state
+								.infinityModeMultiplier)
+				);
+			} else {
+				return (
+					100 -
+					(this.bloonHp * 100) /
+						this.$store.state.bloonsRounds[
+							this.$store.state.round
+						].hp
+				);
+			}
+
 			// + calculate percentage of health left
 		},
 	},

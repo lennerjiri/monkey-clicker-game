@@ -1,7 +1,13 @@
 <template>
 	<img
 		class="body__backgroundImage"
-		src="@/assets/img/backgrounds/Snake_River.jpeg"
+		:src="
+			require(`@/assets/img/backgrounds/${
+				this.$store.state.bloonsRounds[
+					this.$store.state.round
+				].background
+			}`)
+		"
 		alt=""
 	/>
 </template>

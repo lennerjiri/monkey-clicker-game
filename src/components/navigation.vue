@@ -30,8 +30,17 @@
 			<p class="body__controlPanel__stage--head">
 				Round
 			</p>
-			<p class="body__controlPanel__stage--count">
-				{{ $store.state.round }}
+			<p
+				class="body__controlPanel__stage--count"
+				v-if="!this.$store.state.infinityMode"
+			>
+				{{ $store.state.round + 1 }}
+			</p>
+			<p
+				class="body__controlPanel__stage--infinityMode"
+				v-if="this.$store.state.infinityMode"
+			>
+				INFINITY
 			</p>
 		</div>
 		<div class="body__controlPanel__pause">
