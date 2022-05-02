@@ -330,7 +330,7 @@ export default new Vuex.Store({
 			context.commit('updateSerial');
 			context.commit('updateBloonHp');
 
-			// + add score to the score board
+			context.commit('closeVictory');
 		},
 	},
 	modules: {},

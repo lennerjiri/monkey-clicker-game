@@ -34,7 +34,7 @@ export default {
 			this.$store.commit('restart');
 		},
 		infinityMode() {
-			this.$store.commit('restart');
+			this.$store.dispatch('enableInfinity');
 		},
 	},
 };
