@@ -26,6 +26,9 @@ const vuexLocal = new VuexPersistence({
 		hours: state.hours,
 		days: state.days,
 
+		timeSpeed: state.timeSpeed,
+		pause: state.pause,
+
 		// scores
 		scores: state.scores,
 		infinityMode: state.infinityMode,
@@ -257,10 +260,10 @@ export default new Vuex.Store({
 				}
 			}
 
-			//  bloon
-			if (!context.state.victory) {
-				context.commit('bloonRecharge');
-			}
+			context.commit('bloonRecharge');
+			// //  bloon
+			// if (!context.state.victory) {
+			// }
 		},
 		changeTimeSpeed(context, speedChange) {
 			if (

@@ -13,6 +13,7 @@
 						].img
 					}`)
 				"
+				v-if="!this.$store.state.victory"
 				alt=""
 				ondragstart="return false;"
 				:class="{
