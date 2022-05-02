@@ -7,10 +7,10 @@
 				<p>Best score: {{ bestScore }}</p>
 			</div>
 			<div>
-				<div>
+				<div @click="restart">
 					<p>Restart</p>
 				</div>
-				<div>
+				<div @click="infinityMode">
 					<p>Infinity mode</p>
 				</div>
 			</div>
@@ -27,6 +27,14 @@ export default {
 	computed: {
 		bestScore() {
 			return;
+		},
+	},
+	methods: {
+		restart() {
+			this.$store.commit('restart');
+		},
+		infinityMode() {
+			this.$store.commit('restart');
 		},
 	},
 };

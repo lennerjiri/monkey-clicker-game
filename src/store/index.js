@@ -20,6 +20,12 @@ const vuexLocal = new VuexPersistence({
 
 		cash: state.cash,
 
+		// time
+		seconds: state.seconds,
+		minutes: state.minutes,
+		hours: state.hours,
+		days: state.days,
+
 		// scores
 		scores: state.scores,
 		infinityMode: state.infinityMode,
@@ -184,13 +190,35 @@ export default new Vuex.Store({
 			state.pause = true;
 		},
 		closeVictory(state) {
-			state.vicory = false;
+			state.victory = false;
 			state.pause = false;
 		},
 		addScore(state) {
 			state.scores.push(
 				`${state.days}:${state.hours}:${state.minutes}:${state.seconds}`
 			);
+		},
+		restart(state) {
+			// restart
+			// time
+			state.seconds = 0;
+			state.minutes = 0;
+			state.hours = 0;
+			state.days = 0;
+
+			// system
+			state.round = 0;
+			state.serial = 1;
+			state.bloonHp = 3;
+
+			state.infinityMode = false;
+			state.infinityModeMultiplier = 1;
+
+			state.destroyed = false;
+
+			// close victory
+			state.victory = false;
+			state.pause = false;
 		},
 	},
 	actions: {
@@ -230,7 +258,9 @@ export default new Vuex.Store({
 			}
 
 			//  bloon
-			context.commit('bloonRecharge');
+			if (!context.state.victory) {
+				context.commit('bloonRecharge');
+			}
 		},
 		changeTimeSpeed(context, speedChange) {
 			if (
@@ -292,10 +322,7 @@ export default new Vuex.Store({
 				}
 			}
 		},
-		restart(context) {
-			// restart
-			// add score to the socore board
-		},
+
 		enableInfinity(context) {
 			context.commit('enableInfinity');
 

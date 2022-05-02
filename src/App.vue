@@ -81,11 +81,10 @@ export default {
 	},
 	created() {
 		this.$store.commit('setupData', data);
-		console.log(data);
 	},
 	mounted() {
 		if (this.$store.state.victory) {
-			this.$store.state.commit('openVictory');
+			this.$store.commit('openVictory');
 		}
 		setInterval(this.timeTick1x, 1000);
 		setInterval(this.timeTick2x, 500);
