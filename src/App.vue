@@ -36,6 +36,8 @@ import background from '@/components/background.vue';
 import leftHealth from '@/components/leftHealth.vue';
 import rightHealth from '@/components/rightHealth.vue';
 
+import data from './assets/data/bloonsTest.json';
+
 export default {
 	name: 'App',
 	components: {
@@ -74,8 +76,8 @@ export default {
 		},
 	},
 	created() {
-		const data = require('./assets/data/bloons.json');
 		this.$store.commit('setupData', data);
+		console.log(data);
 	},
 	mounted() {
 		setInterval(this.timeTick1x, 1000);

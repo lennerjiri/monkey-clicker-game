@@ -31,7 +31,7 @@
 				Round
 			</p>
 			<p class="body__controlPanel__stage--count">
-				1
+				{{ $store.state.round }}
 			</p>
 		</div>
 		<div class="body__controlPanel__pause">

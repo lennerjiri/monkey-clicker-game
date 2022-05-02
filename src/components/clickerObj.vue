@@ -6,7 +6,13 @@
 		>
 			<img
 				class="body__main__bloonContainer__bloon"
-				src="@/assets/img/bloons/01.png"
+				:src="
+					require(`@/assets/img/bloons/${
+						this.$store.state.bloonsRounds[
+							this.$store.state.round
+						].img
+					}`)
+				"
 				alt=""
 				ondragstart="return false;"
 			/>

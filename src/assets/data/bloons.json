@@ -4,13 +4,566 @@
 		"hp": 10,
 		"reward": 1,
 		"serial": 10,
-		"img": "@/assets/img/monks/01.png"
+		"img": "01.png"
 	},
 	{
 		"name": "RED",
-		"hp": 20,
+		"hp": 10,
 		"reward": 1,
+		"serial": 15,
+		"img": "01.png"
+	},
+	{
+		"name": "BLUE",
+		"hp": 12,
+		"reward": 2,
+		"serial": 10,
+		"img": "02.png"
+	},
+	{
+		"name": "BLUE",
+		"hp": 12,
+		"reward": 2,
+		"serial": 15,
+		"img": "02.png"
+	},
+	{
+		"name": "GREEN",
+		"hp": 15,
+		"reward": 4,
+		"serial": 12,
+		"img": "03.png"
+	},
+	{
+		"name": "GREEN",
+		"hp": 15,
+		"reward": 4,
+		"serial": 15,
+		"img": "03.png"
+	},
+	{
+		"name": "GREEN",
+		"hp": 15,
+		"reward": 4,
 		"serial": 20,
-		"img": "@/assets/img/monks/01.png"
+		"img": "03.png"
+	},
+	{
+		"name": "GREEN",
+		"hp": 15,
+		"reward": 4,
+		"serial": 25,
+		"img": "03.png"
+	},
+	{
+		"name": "YELLOW",
+		"hp": 20,
+		"reward": 7,
+		"serial": 20,
+		"img": "04.png"
+	},
+	{
+		"name": "YELLOW",
+		"hp": 20,
+		"reward": 7,
+		"serial": 25,
+		"img": "04.png"
+	},
+	{
+		"name": "YELLOW",
+		"hp": 20,
+		"reward": 7,
+		"serial": 30,
+		"img": "04.png"
+	},
+	{
+		"name": "YELLOW",
+		"hp": 20,
+		"reward": 7,
+		"serial": 35,
+		"img": "04.png"
+	},
+	{
+		"name": "PINK",
+		"hp": 30,
+		"reward": 10,
+		"serial": 20,
+		"img": "05.png"
+	},
+	{
+		"name": "PINK",
+		"hp": 30,
+		"reward": 10,
+		"serial": 25,
+		"img": "05.png"
+	},
+	{
+		"name": "PINK",
+		"hp": 30,
+		"reward": 10,
+		"serial": 30,
+		"img": "05.png"
+	},
+	{
+		"name": "PINK",
+		"hp": 30,
+		"reward": 10,
+		"serial": 40,
+		"img": "05.png"
+	},
+	{
+		"name": "PINK",
+		"hp": 30,
+		"reward": 10,
+		"serial": 45,
+		"img": "05.png"
+	},
+	{
+		"name": "PURPLE",
+		"hp": 50,
+		"reward": 15,
+		"serial": 25,
+		"img": "06.png"
+	},
+	{
+		"name": "PURPLE",
+		"hp": 50,
+		"reward": 15,
+		"serial": 30,
+		"img": "06.png"
+	},
+	{
+		"name": "PURPLE",
+		"hp": 50,
+		"reward": 15,
+		"serial": 35,
+		"img": "06.png"
+	},
+	{
+		"name": "PURPLE",
+		"hp": 50,
+		"reward": 15,
+		"serial": 40,
+		"img": "06.png"
+	},
+	{
+		"name": "PURPLE",
+		"hp": 50,
+		"reward": 15,
+		"serial": 45,
+		"img": "06.png"
+	},
+	{
+		"name": "TIGER",
+		"hp": 70,
+		"reward": 30,
+		"serial": 25,
+		"img": "07.png"
+	},
+	{
+		"name": "TIGER",
+		"hp": 70,
+		"reward": 30,
+		"serial": 30,
+		"img": "07.png"
+	},
+	{
+		"name": "TIGER",
+		"hp": 70,
+		"reward": 30,
+		"serial": 35,
+		"img": "07.png"
+	},
+	{
+		"name": "TIGER",
+		"hp": 70,
+		"reward": 30,
+		"serial": 40,
+		"img": "07.png"
+	},
+	{
+		"name": "TIGER",
+		"hp": 70,
+		"reward": 30,
+		"serial": 40,
+		"img": "07.png"
+	},
+	{
+		"name": "TIGER",
+		"hp": 70,
+		"reward": 30,
+		"serial": 50,
+		"img": "07.png"
+	},
+	{
+		"name": "LGBT",
+		"hp": 100,
+		"reward": 50,
+		"serial": 30,
+		"img": "08.png"
+	},
+	{
+		"name": "LGBT",
+		"hp": 100,
+		"reward": 50,
+		"serial": 35,
+		"img": "08.png"
+	},
+	{
+		"name": "LGBT",
+		"hp": 100,
+		"reward": 50,
+		"serial": 40,
+		"img": "08.png"
+	},
+	{
+		"name": "LGBT",
+		"hp": 100,
+		"reward": 50,
+		"serial": 50,
+		"img": "08.png"
+	},
+	{
+		"name": "LGBT",
+		"hp": 100,
+		"reward": 50,
+		"serial": 20,
+		"img": "08.png"
+	},
+	{
+		"name": "LGBT",
+		"hp": 100,
+		"reward": 50,
+		"serial": 15,
+		"img": "08.png"
+	},
+	{
+		"name": "RHYNO",
+		"hp": 200,
+		"reward": 80,
+		"serial": 10,
+		"img": "09.png"
+	},
+	{
+		"name": "RHYNO",
+		"hp": 200,
+		"reward": 80,
+		"serial": 20,
+		"img": "09.png"
+	},
+	{
+		"name": "RHYNO",
+		"hp": 200,
+		"reward": 80,
+		"serial": 25,
+		"img": "09.png"
+	},
+	{
+		"name": "RHYNO",
+		"hp": 200,
+		"reward": 80,
+		"serial": 40,
+		"img": "09.png"
+	},
+	{
+		"name": "RHYNO",
+		"hp": 200,
+		"reward": 80,
+		"serial": 15,
+		"img": "09.png"
+	},
+	{
+		"name": "RHYNO",
+		"hp": 200,
+		"reward": 80,
+		"serial": 5,
+		"img": "09.png"
+	},
+	{
+		"name": "HIVE",
+		"hp": 300,
+		"reward": 100,
+		"serial": 10,
+		"img": "10.png"
+	},
+	{
+		"name": "HIVE",
+		"hp": 300,
+		"reward": 100,
+		"serial": 15,
+		"img": "10.png"
+	},
+	{
+		"name": "HIVE",
+		"hp": 300,
+		"reward": 100,
+		"serial": 25,
+		"img": "10.png"
+	},
+	{
+		"name": "HIVE",
+		"hp": 300,
+		"reward": 100,
+		"serial": 40,
+		"img": "10.png"
+	},
+	{
+		"name": "HIVE",
+		"hp": 300,
+		"reward": 100,
+		"serial": 20,
+		"img": "10.png"
+	},
+	{
+		"name": "HIVE",
+		"hp": 300,
+		"reward": 100,
+		"serial": 25,
+		"img": "10.png"
+	},
+	{
+		"name": "WHALE",
+		"hp": 1000,
+		"reward": 500,
+		"serial": 5,
+		"img": "11.webp"
+	},
+	{
+		"name": "WHALE",
+		"hp": 1000,
+		"reward": 500,
+		"serial": 7,
+		"img": "11.webp"
+	},
+	{
+		"name": "WHALE",
+		"hp": 1000,
+		"reward": 500,
+		"serial": 9,
+		"img": "11.webp"
+	},
+	{
+		"name": "WHALE",
+		"hp": 1000,
+		"reward": 500,
+		"serial": 4,
+		"img": "11.webp"
+	},
+	{
+		"name": "WHALE",
+		"hp": 1000,
+		"reward": 500,
+		"serial": 12,
+		"img": "11.webp"
+	},
+	{
+		"name": "AIRBUS",
+		"hp": 5000,
+		"reward": 3000,
+		"serial": 5,
+		"img": "12.webp"
+	},
+	{
+		"name": "AIRBUS",
+		"hp": 5000,
+		"reward": 3000,
+		"serial": 7,
+		"img": "12.webp"
+	},
+	{
+		"name": "AIRBUS",
+		"hp": 5000,
+		"reward": 3000,
+		"serial": 10,
+		"img": "12.webp"
+	},
+	{
+		"name": "AIRBUS",
+		"hp": 5000,
+		"reward": 3000,
+		"serial": 15,
+		"img": "12.webp"
+	},
+	{
+		"name": "AIRBUS",
+		"hp": 5000,
+		"reward": 3000,
+		"serial": 17,
+		"img": "12.webp"
+	},
+	{
+		"name": "POISON",
+		"hp": 10000,
+		"reward": 10000,
+		"serial": 5,
+		"img": "13.webp"
+	},
+	{
+		"name": "POISON",
+		"hp": 10000,
+		"reward": 10000,
+		"serial": 7,
+		"img": "13.webp"
+	},
+	{
+		"name": "POISON",
+		"hp": 10000,
+		"reward": 10000,
+		"serial": 3,
+		"img": "13.webp"
+	},
+	{
+		"name": "POISON",
+		"hp": 10000,
+		"reward": 10000,
+		"serial": 2,
+		"img": "13.webp"
+	},
+	{
+		"name": "POISON",
+		"hp": 10000,
+		"reward": 10000,
+		"serial": 3,
+		"img": "13.webp"
+	},
+	{
+		"name": "POISON",
+		"hp": 10000,
+		"reward": 10000,
+		"serial": 6,
+		"img": "13.webp"
+	},
+	{
+		"name": "POISON",
+		"hp": 10000,
+		"reward": 10000,
+		"serial": 10,
+		"img": "13.webp"
+	},
+	{
+		"name": "TURBO",
+		"hp": 100000,
+		"reward": 50000,
+		"serial": 3,
+		"img": "15.webp"
+	},
+	{
+		"name": "TURBO",
+		"hp": 100000,
+		"reward": 50000,
+		"serial": 5,
+		"img": "15.webp"
+	},
+	{
+		"name": "TURBO",
+		"hp": 100000,
+		"reward": 50000,
+		"serial": 3,
+		"img": "15.webp"
+	},
+	{
+		"name": "TURBO",
+		"hp": 100000,
+		"reward": 50000,
+		"serial": 10,
+		"img": "15.webp"
+	},
+	{
+		"name": "TURBO",
+		"hp": 100000,
+		"reward": 50000,
+		"serial": 6,
+		"img": "15.webp"
+	},
+	{
+		"name": "DEATH",
+		"hp": 1000000,
+		"reward": 100000,
+		"serial": 3,
+		"img": "16.webp"
+	},
+	{
+		"name": "DEATH",
+		"hp": 1000000,
+		"reward": 100000,
+		"serial": 5,
+		"img": "16.webp"
+	},
+	{
+		"name": "DEATH",
+		"hp": 1000000,
+		"reward": 100000,
+		"serial": 4,
+		"img": "16.webp"
+	},
+	{
+		"name": "DEATH",
+		"hp": 1000000,
+		"reward": 100000,
+		"serial": 2,
+		"img": "16.webp"
+	},
+	{
+		"name": "RAMPAGE",
+		"hp": 2000000,
+		"reward": 200000,
+		"serial": 1,
+		"img": "17.webp"
+	},
+	{
+		"name": "RAMPAGE",
+		"hp": 2000000,
+		"reward": 200000,
+		"serial": 3,
+		"img": "17.webp"
+	},
+	{
+		"name": "RAMPAGE",
+		"hp": 2000000,
+		"reward": 200000,
+		"serial": 2,
+		"img": "17.webp"
+	},
+	{
+		"name": "RAMPAGE",
+		"hp": 2000000,
+		"reward": 200000,
+		"serial": 4,
+		"img": "17.webp"
+	},
+	{
+		"name": "DOOM",
+		"hp": 3000000,
+		"reward": 500000,
+		"serial": 4,
+		"img": "18.webp"
+	},
+	{
+		"name": "DOOM",
+		"hp": 3000000,
+		"reward": 500000,
+		"serial": 4,
+		"img": "18.webp"
+	},
+	{
+		"name": "DOOM",
+		"hp": 3000000,
+		"reward": 500000,
+		"serial": 4,
+		"img": "18.webp"
+	},
+	{
+		"name": "DOOM",
+		"hp": 3000000,
+		"reward": 500000,
+		"serial": 4,
+		"img": "18.webp"
+	},
+	{
+		"name": "EVANGELION",
+		"hp": 10000000,
+		"reward": 10000000,
+		"serial": 1,
+		"img": "19.webp"
 	}
 ]

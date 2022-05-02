@@ -1,0 +1,128 @@
+[
+	{
+		"name": "RED",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "01.png"
+	},
+	{
+		"name": "BLUE",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "02.png"
+	},
+	{
+		"name": "GREEN",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "03.png"
+	},
+	{
+		"name": "YELLOW",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "04.png"
+	},
+	{
+		"name": "PINK",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "05.png"
+	},
+	{
+		"name": "PURPLE",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "06.png"
+	},
+	{
+		"name": "TIGER",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "07.png"
+	},
+	{
+		"name": "LGBT",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "08.png"
+	},
+	{
+		"name": "RHYNO",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "09.png"
+	},
+	{
+		"name": "HIVE",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "2.png"
+	},
+	{
+		"name": "WHALE",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "11.webp"
+	},
+	{
+		"name": "AIRBUS",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "12.webp"
+	},
+	{
+		"name": "POISON",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "13.webp"
+	},
+	{
+		"name": "TURBO",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "15.webp"
+	},
+	{
+		"name": "DEATH",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "16.webp"
+	},
+	{
+		"name": "RAMPAGE",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "17.webp"
+	},
+	{
+		"name": "DOOM",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "18.webp"
+	},
+	{
+		"name": "EVANGELION",
+		"hp": 2,
+		"reward": 1,
+		"serial": 2,
+		"img": "19.webp"
+	}
+]

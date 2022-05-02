@@ -18,10 +18,11 @@
 		width: 300%;
 		position: absolute;
 		left: -100%;
-		top: -50%;
+		top: -80%;
 	}
 	.body__main__bloonContainer__bloon {
 		width: 100%;
+		transform: scale(1.8);
 	}
 
 	&:hover {

@@ -46,7 +46,7 @@ export default new Vuex.Store({
 		// saved in vuex
 		round: 0,
 		serial: 1,
-		bloonHp: 10,
+		bloonHp: 2,
 
 		timeStamp: '',
 		playerHp: 100,
@@ -117,12 +117,18 @@ export default new Vuex.Store({
 		updateBloonHp(state) {
 			state.bloonHp =
 				state.bloonsRounds[state.round].hp;
-			console.log(state.bloonHp);
 		},
 
 		nextSerial(state) {
 			state.serial += 1;
-			console.log(state.serial);
+		},
+
+		updateSerial(state) {
+			state.serial = 1;
+		},
+
+		nextRound(state) {
+			state.round += 1;
 		},
 	},
 	actions: {
@@ -190,9 +196,12 @@ export default new Vuex.Store({
 						context.state.round + 1 >
 						context.state.bloonsRounds.length
 					) {
-						// infiniti mode
+						// infiniti mode + Victory
 					} else {
 						// next round
+						context.commit('nextRound');
+						context.commit('updateSerial');
+						context.commit('updateBloonHp');
 					}
 				} else {
 					// load next
