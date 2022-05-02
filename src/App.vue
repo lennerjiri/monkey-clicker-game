@@ -1,5 +1,7 @@
 <template>
 	<div id="app">
+		<!-- Victory -->
+		<victory v-if="this.$store.state.victory" />
 		<!--Background image-->
 		<background />
 		<!--Nav-->
@@ -35,6 +37,7 @@ import clickerObj from '@/components/clickerObj.vue';
 import background from '@/components/background.vue';
 import leftHealth from '@/components/leftHealth.vue';
 import rightHealth from '@/components/rightHealth.vue';
+import victory from '@/components/victory.vue';
 
 import data from './assets/data/bloonsTest.json';
 
@@ -48,6 +51,7 @@ export default {
 		background,
 		leftHealth,
 		rightHealth,
+		victory,
 	},
 	// Toggle Side Bars
 	methods: {
@@ -80,6 +84,9 @@ export default {
 		console.log(data);
 	},
 	mounted() {
+		if (this.$store.state.victory) {
+			this.$store.state.commit('openVictory');
+		}
 		setInterval(this.timeTick1x, 1000);
 		setInterval(this.timeTick2x, 500);
 		setInterval(this.timeTick3x, 250);

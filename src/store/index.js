@@ -25,6 +25,9 @@ const vuexLocal = new VuexPersistence({
 		infinityMode: state.infinityMode,
 		infinityModeMultiplier:
 			state.infinityModeMultiplier,
+
+		victory: state.victory,
+		victoryData: state.victoryData,
 	}),
 });
 
@@ -65,9 +68,11 @@ export default new Vuex.Store({
 		destroyed: false,
 
 		// scoring system
-		scores: [],
 		infinityMode: false,
 		infinityModeMultiplier: 1,
+
+		victory: false,
+		scores: [],
 	},
 
 	mutations: {
@@ -173,6 +178,20 @@ export default new Vuex.Store({
 		disableInfinity(state) {
 			state.infinityMode = false;
 		},
+
+		openVictory(state) {
+			state.victory = true;
+			state.pause = true;
+		},
+		closeVictory(state) {
+			state.vicory = false;
+			state.pause = false;
+		},
+		addScore(state) {
+			state.scores.push(
+				`${state.days}:${state.hours}:${state.minutes}:${state.seconds}`
+			);
+		},
 	},
 	actions: {
 		// time
@@ -251,20 +270,10 @@ export default new Vuex.Store({
 							context.commit('updateBloonHp');
 						} else {
 							// stop the time
-							context.commit('pause', true);
+							context.commit('addScore');
+							context.commit('openVictory');
 
-							/// the menu part
-							// triger vicory panel with stats + restart + top three best scores (time) + add to best scores (do the same for the restart button)
-							context.commit(
-								'enableInfinity'
-							);
-
-							// unpause time
-							context.commit('pause', false);
-							context.commit('randomRound');
-							context.commit('updateSerial');
-							context.commit('updateBloonHp');
-							///
+							// programm the the buttons to trigger actions below here
 						}
 					} else {
 						// next round
@@ -282,6 +291,19 @@ export default new Vuex.Store({
 					context.commit('updateBloonHp');
 				}
 			}
+		},
+		restart(context) {
+			// restart
+			// add score to the socore board
+		},
+		enableInfinity(context) {
+			context.commit('enableInfinity');
+
+			context.commit('randomRound');
+			context.commit('updateSerial');
+			context.commit('updateBloonHp');
+
+			// + add score to the score board
 		},
 	},
 	modules: {},
