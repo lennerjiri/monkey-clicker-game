@@ -106,41 +106,44 @@
 			</div>
 		</div>
 
-		<!-- <div
-			class="body__rightPanelBuildings__build__container"
+		<div
+			class="body__rightPanelBuildings__build__menus"
 		>
 			<div
-				class="body__rightPanelBuildings__tool selectBox"
+				:class="{
+					disabled:
+						!this.$store.state.audioPlaying,
+				}"
+				@click="toggleSound"
 			>
-				<p>Toolkit</p>
-				<div
-					class="body__rightPanelUser__tool--selectTool"
-				>
-					<img
-						src="@/assets/img/toolkit/SentryPortrait.png"
-						alt=""
-					/>
-				</div>
+				<font-awesome-icon
+					icon="fa-solid fa-music"
+				/>
 			</div>
-			<div
-				class="body__rightPanelBuildings__tool selectBox"
-			>
-				<div
-					class="body__rightPanelUser__tool--selectTool"
-				>
-					<img
-						src="@/assets/img/toolkit/000-MortarMonkey.png"
-						alt=""
-					/>
-				</div>
+			<div @click="openManual">
+				<font-awesome-icon
+					icon="fa-solid fa-info"
+				/>
 			</div>
-		</div> -->
+		</div>
 	</aside>
 </template>
 
 <script>
 export default {
 	name: 'rightBar',
+	methods: {
+		openManual() {
+			this.$store.commit('openManual');
+		},
+		toggleSound() {
+			if (this.$store.state.audioPlaying) {
+				this.$store.commit('stopAudio');
+			} else {
+				this.$store.commit('playAudio');
+			}
+		},
+	},
 };
 </script>
 

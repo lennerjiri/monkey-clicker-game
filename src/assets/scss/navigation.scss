@@ -34,28 +34,6 @@
 				padding: 0 1.5rem;
 			}
 		}
-		.body__controlPanel__data__lvl {
-			display: flex;
-			align-items: center;
-			font-size: 2rem;
-
-			height: 100%;
-
-			p:first-child {
-				color: #fbb101;
-				-webkit-text-stroke-width: 3px;
-				-webkit-text-stroke-color: black;
-				padding: 0 1rem;
-				margin-top: 10px;
-			}
-			p {
-				margin-top: 10px;
-			}
-			p:last-child {
-				display: flex;
-				justify-content: flex-start;
-			}
-		}
 		.body__controlPanel__data__cash {
 			display: flex;
 			align-items: center;

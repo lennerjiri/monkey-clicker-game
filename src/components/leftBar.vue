@@ -27,19 +27,6 @@
 				/>
 			</div>
 		</div>
-		<div
-			class="body__leftPanelUser__mobility selectBox"
-		>
-			<p>Mobility</p>
-			<div
-				class="body__leftPanelUser__mobility--mobilityUpgrade"
-			>
-				<img
-					src="@/assets/img/mobility/PatFustyPortrait.png"
-					alt=""
-				/>
-			</div>
-		</div>
 		<div class="body__leftPanelUser__class selectBox">
 			<p>Class</p>
 			<div
@@ -47,6 +34,19 @@
 			>
 				<img
 					src="@/assets/img/class/01.png"
+					alt=""
+				/>
+			</div>
+		</div>
+		<div
+			class="body__leftPanelUser__mobility selectBox"
+		>
+			<p>Health</p>
+			<div
+				class="body__leftPanelUser__mobility--mobilityUpgrade"
+			>
+				<img
+					src="@/assets/img/mobility/PatFustyPortrait.png"
 					alt=""
 				/>
 			</div>

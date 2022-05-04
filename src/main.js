@@ -21,6 +21,9 @@ import {
 	faChevronLeft as faChevronLeftSolid,
 	faPlus as faPlusSolid,
 	faPlay as faPlaySolid,
+	faMusic as faMusicSolid,
+	faInfo as faInfoSolid,
+	faXmark as faXmarkSolid,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {} from '@fortawesome/free-regular-svg-icons';
@@ -37,7 +40,10 @@ library.add(
 	faChevronRightSolid,
 	faChevronLeftSolid,
 	faPlusSolid,
-	faPlaySolid
+	faPlaySolid,
+	faMusicSolid,
+	faInfoSolid,
+	faXmarkSolid
 );
 
 /* add font awesome icon component */

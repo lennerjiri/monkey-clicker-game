@@ -14,10 +14,7 @@
 					}}
 				</p>
 			</div>
-			<div class="body__controlPanel__data__lvl">
-				<p>LVL</p>
-				<p>1</p>
-			</div>
+
 			<div class="body__controlPanel__data__cash">
 				<img
 					src="@/assets/img/assets/money.png"
@@ -75,7 +72,10 @@
 				{{ getTimeSpeed }} <span>x</span>
 			</div>
 
-			<div class="body__controlPanel__pause--restart">
+			<div
+				@click="restart"
+				class="body__controlPanel__pause--restart"
+			>
 				<font-awesome-icon
 					icon="fa-solid fa-arrow-rotate-right"
 				/>
@@ -133,6 +133,9 @@ export default {
 		},
 		pause() {
 			this.$store.dispatch('pause');
+		},
+		restart() {
+			this.$store.commit('restart');
 		},
 	},
 };

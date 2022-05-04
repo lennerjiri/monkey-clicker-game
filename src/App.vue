@@ -1,5 +1,7 @@
 <template>
 	<div id="app">
+		<!-- Game Manual -->
+		<manual v-if="this.$store.state.manual" />
 		<!-- Victory -->
 		<victory v-if="this.$store.state.victory" />
 		<!--Background image-->
@@ -25,6 +27,8 @@
 
 		<!--Characters clickable-->
 		<clickerObj />
+
+		<!-- audio -->
 	</div>
 </template>
 
@@ -38,6 +42,7 @@ import background from '@/components/background.vue';
 import leftHealth from '@/components/leftHealth.vue';
 import rightHealth from '@/components/rightHealth.vue';
 import victory from '@/components/victory.vue';
+import manual from '@/components/manual.vue';
 
 import data from './assets/data/bloonsTest.json';
 
@@ -52,6 +57,12 @@ export default {
 		leftHealth,
 		rightHealth,
 		victory,
+		manual,
+	},
+	data() {
+		return {
+			audio: {},
+		};
 	},
 	// Toggle Side Bars
 	methods: {
@@ -89,6 +100,16 @@ export default {
 		setInterval(this.timeTick1x, 1000);
 		setInterval(this.timeTick2x, 500);
 		setInterval(this.timeTick3x, 250);
+		this.audio = new Audio('/audio/monk.mp3');
+	},
+	watch: {
+		'$store.state.audioPlaying'(playing) {
+			if (playing) {
+				this.audio.play();
+			} else {
+				this.audio.pause();
+			}
+		},
 	},
 };
 </script>

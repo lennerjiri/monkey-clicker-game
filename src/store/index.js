@@ -37,6 +37,7 @@ const vuexLocal = new VuexPersistence({
 
 		victory: state.victory,
 		victoryData: state.victoryData,
+		manual: state.manual,
 	}),
 });
 
@@ -81,6 +82,10 @@ export default new Vuex.Store({
 		infinityModeMultiplier: 1,
 
 		victory: false,
+		manual: false,
+
+		audioPlaying: false,
+
 		scores: [],
 	},
 
@@ -196,6 +201,15 @@ export default new Vuex.Store({
 			state.victory = false;
 			state.pause = false;
 		},
+		openManual(state) {
+			state.manual = true;
+			state.pause = true;
+		},
+		closeManual(state) {
+			state.manual = false;
+			state.pause = false;
+		},
+
 		addScore(state) {
 			state.scores.push(
 				`${state.days}:${state.hours}:${state.minutes}:${state.seconds}`
@@ -222,6 +236,15 @@ export default new Vuex.Store({
 			// close victory
 			state.victory = false;
 			state.pause = false;
+		},
+
+		// audio
+		playAudio(state) {
+			state.audioPlaying = true;
+		},
+
+		stopAudio(state) {
+			state.audioPlaying = false;
 		},
 	},
 	actions: {
