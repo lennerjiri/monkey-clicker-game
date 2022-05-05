@@ -37,6 +37,11 @@
 
 			> p {
 				padding: 0.5rem;
+				> span {
+					color: #fbb101;
+					-webkit-text-stroke-width: 3px;
+					-webkit-text-stroke-color: black;
+				}
 			}
 		}
 		> div:last-child {
