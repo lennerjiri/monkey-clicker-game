@@ -70,7 +70,8 @@ export default new Vuex.Store({
 		bloonHp: 3,
 
 		timeStamp: '',
-		playerHp: 100,
+		playerHp: 200,
+		playerMaxHp: 200,
 
 		cash: 0,
 
