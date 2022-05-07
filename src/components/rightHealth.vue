@@ -7,7 +7,7 @@
 		}"
 	>
 		<div class="body__rightBar__healthBarContainer">
-			<p>{{ playerHp }} HP</p>
+			<p>{{ playerHp }} / {{ playerMaxHp }} HP</p>
 			<div
 				class="rightBar__healthBarContainer--health"
 				:style="`width: ${playerHpPercentage}%`"
@@ -32,6 +32,10 @@ export default {
 	computed: {
 		playerHp() {
 			return this.$store.state.playerHp;
+		},
+
+		playerMaxHp() {
+			return this.$store.state.playerMaxHp;
 		},
 
 		playerHpPercentage() {

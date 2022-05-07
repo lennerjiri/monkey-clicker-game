@@ -5,7 +5,8 @@
 		"reward": 1,
 		"serial": 3,
 		"img": "01.png",
-		"background": "01.webp"
+		"background": "01.webp",
+		"demage": 1
 	},
 	{
 		"name": "BLUE",
@@ -13,7 +14,8 @@
 		"reward": 1,
 		"serial": 3,
 		"img": "02.png",
-		"background": "02.webp"
+		"background": "02.webp",
+		"demage": 2
 	},
 	{
 		"name": "GREEN",
@@ -21,6 +23,7 @@
 		"reward": 1,
 		"serial": 3,
 		"img": "03.png",
-		"background": "03.webp"
+		"background": "03.webp",
+		"demage": 4
 	}
 ]

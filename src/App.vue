@@ -1,5 +1,7 @@
 <template>
 	<div id="app">
+		<!-- Defeat -->
+		<defeat v-if="this.$store.state.defeat" />
 		<!-- Game Manual -->
 		<manual v-if="this.$store.state.manual" />
 		<!-- Victory -->
@@ -43,6 +45,7 @@ import leftHealth from '@/components/leftHealth.vue';
 import rightHealth from '@/components/rightHealth.vue';
 import victory from '@/components/victory.vue';
 import manual from '@/components/manual.vue';
+import defeat from '@/components/defeat.vue';
 
 import data from './assets/data/bloonsTest.json';
 
@@ -58,6 +61,7 @@ export default {
 		rightHealth,
 		victory,
 		manual,
+		defeat,
 	},
 	data() {
 		return {
@@ -97,10 +101,15 @@ export default {
 		if (this.$store.state.victory) {
 			this.$store.commit('openVictory');
 		}
+
+		if (this.$store.state.defeat) {
+			this.$store.commit('openDefeat');
+		}
+
 		setInterval(this.timeTick1x, 1000);
 		setInterval(this.timeTick2x, 500);
 		setInterval(this.timeTick3x, 250);
-		this.audio = new Audio('/audio/monk.mp3');
+		this.audio = new Audio('/audio/monk.mp4');
 	},
 	watch: {
 		'$store.state.audioPlaying'(playing) {

@@ -31,11 +31,14 @@ const vuexLocal = new VuexPersistence({
 
 		// scores
 		scores: state.scores,
+		infinityScores: state.infinityScores,
 		infinityMode: state.infinityMode,
 		infinityModeMultiplier:
 			state.infinityModeMultiplier,
 
 		victory: state.victory,
+		defeat: state.defeat,
+
 		victoryData: state.victoryData,
 		manual: state.manual,
 	}),
@@ -70,8 +73,6 @@ export default new Vuex.Store({
 		bloonHp: 3,
 
 		timeStamp: '',
-		playerHp: 200,
-		playerMaxHp: 200,
 
 		cash: 0,
 
@@ -83,11 +84,21 @@ export default new Vuex.Store({
 		infinityModeMultiplier: 1,
 
 		victory: false,
+		defeat: false,
 		manual: false,
 
 		audioPlaying: false,
 
 		scores: [],
+		infinityScores: [],
+
+		// player control
+		playerHp: 10,
+		playerMaxHp: 10,
+
+		// demage timers
+		hpRegularDemageTimer: 5,
+		hpBloonDemageTimer: 5,
 	},
 
 	mutations: {
@@ -147,7 +158,11 @@ export default new Vuex.Store({
 
 		// game system control
 		reduceBloonHp(state, amount) {
-			state.bloonHp -= amount;
+			if (state.bloonHp - amount < 0) {
+				state.bloonHp = 0;
+			} else {
+				state.bloonHp -= amount;
+			}
 		},
 
 		updateBloonHp(state) {
@@ -202,6 +217,15 @@ export default new Vuex.Store({
 			state.victory = false;
 			state.pause = false;
 		},
+		openDefeat(state) {
+			state.defeat = true;
+			state.pause = true;
+		},
+		closeDefeat(state) {
+			state.defeat = false;
+			state.pause = false;
+		},
+
 		openManual(state) {
 			state.manual = true;
 			state.pause = true;
@@ -216,6 +240,12 @@ export default new Vuex.Store({
 				`${state.days}:${state.hours}:${state.minutes}:${state.seconds}`
 			);
 		},
+		addInfinityScore(state) {
+			state.infinityScores.push(
+				`${state.days}:${state.hours}:${state.minutes}:${state.seconds}`
+			);
+		},
+
 		restart(state) {
 			// restart
 			// time
@@ -236,7 +266,11 @@ export default new Vuex.Store({
 
 			// close victory
 			state.victory = false;
+			state.defeat = false;
 			state.pause = false;
+
+			// player hp
+			state.playerHp = 10;
 		},
 
 		// audio
@@ -247,12 +281,58 @@ export default new Vuex.Store({
 		stopAudio(state) {
 			state.audioPlaying = false;
 		},
+
+		// player hp
+		reducePlayerHp(state, demage) {
+			if (state.playerHp - demage < 0) {
+				state.playerHp = 0;
+			} else {
+				state.playerHp -= demage;
+			}
+		},
+		resetPlayerHp(state) {
+			state.playerHp = 10;
+		},
+
+		// demage timers
+		changeHpRegularDemageTimer(state) {
+			state.hpRegularDemageTimer -= 1;
+		},
+		resetHpRegularDemageTimer(state) {
+			state.hpRegularDemageTimer = 5;
+		},
+		changehpBloonDemageTimer(state) {
+			state.hpBloonDemageTimer -= 1;
+		},
+		resethpBloonDemageTimer(state) {
+			state.hpBloonDemageTimer = 5;
+		},
 	},
 	actions: {
 		// time
 		timeTick(context) {
-			// time
+			/// time
 			if (!context.state.pause) {
+				/// health
+				// regular
+				if (
+					context.state.hpRegularDemageTimer === 0
+				) {
+					context.commit(
+						'reducePlayerHp',
+						context.state.bloonsRounds[
+							context.state.round
+						].demage
+					);
+					context.commit(
+						'resetHpRegularDemageTimer'
+					);
+				} else {
+					context.commit(
+						'changeHpRegularDemageTimer'
+					);
+				}
+
 				if (context.state.seconds + 1 > 59) {
 					context.commit('nullSeconds');
 
@@ -282,12 +362,34 @@ export default new Vuex.Store({
 				} else {
 					context.commit('addSecond');
 				}
+				if (context.state.playerHp <= 0) {
+					if (context.state.infinityMode) {
+						context.commit('addInfinityScore');
+					}
+					context.commit('openDefeat');
+				}
+
+				// bloon
+				if (
+					context.state.hpBloonDemageTimer === 0
+				) {
+					context.commit(
+						'reducePlayerHp',
+						context.state.bloonsRounds[
+							context.state.round
+						].demage
+					);
+					context.commit(
+						'resethpBloonDemageTimer'
+					);
+				} else {
+					context.commit(
+						'changehpBloonDemageTimer'
+					);
+				}
 			}
 
 			context.commit('bloonRecharge');
-			// //  bloon
-			// if (!context.state.victory) {
-			// }
 		},
 		changeTimeSpeed(context, speedChange) {
 			if (
@@ -308,7 +410,13 @@ export default new Vuex.Store({
 			const demage = 1;
 			context.commit('reduceBloonHp', demage);
 
+			// demage timer reset for 5 sec
+			context.commit('resetHpRegularDemageTimer');
+
 			if (context.state.bloonHp <= 0) {
+				// reset demage timer
+				context.commit('resethpBloonDemageTimer');
+				// series
 				if (
 					context.state.serial + 1 >
 					context.state.bloonsRounds[

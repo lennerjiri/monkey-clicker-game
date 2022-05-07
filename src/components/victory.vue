@@ -1,7 +1,7 @@
 <template>
 	<div class="body__victory__background">
 		<div class="victory__background__contentContainer">
-			<h1>VICTORY</h1>
+			<h1>VICTORY !</h1>
 			<div>
 				<p><span>Time:</span> {{ getTime }}</p>
 				<p>
