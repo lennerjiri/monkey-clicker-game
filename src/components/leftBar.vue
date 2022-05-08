@@ -45,10 +45,7 @@
 			<div
 				class="body__leftPanelUser__mobility--mobilityUpgrade"
 			>
-				<img
-					src="@/assets/img/mobility/PatFustyPortrait.png"
-					alt=""
-				/>
+				<img src="" alt="" />
 			</div>
 		</div>
 		<div class="body__leftPanelUser__ability selectBox">

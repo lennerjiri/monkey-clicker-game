@@ -54,6 +54,13 @@
 			}
 		}
 
+		.contentContainer__maxLevel {
+			font-size: 3rem;
+			color: #fb0101;
+			-webkit-text-stroke-width: 3px;
+			-webkit-text-stroke-color: black;
+		}
+
 		.contentContainer__upgradeButton {
 			display: flex;
 			justify-content: space-between;

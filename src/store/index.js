@@ -45,6 +45,17 @@ const vuexLocal = new VuexPersistence({
 		// farms and cash
 		credit: state.credit,
 		farms: state.farms,
+
+		farm1: state.farm1,
+		farm2: state.farm2,
+		farm3: state.farm3,
+		farm4: state.farm4,
+		farm5: state.farm5,
+
+		currentFarm: state.currentFarm,
+		currentFarmLvl: state.currentFarmLvl,
+
+		openFarm: state.openFarm,
 	}),
 });
 
@@ -69,7 +80,7 @@ export default new Vuex.Store({
 		timeStamp: '',
 
 		// cash
-		credit: 10000000,
+		credit: 100,
 
 		// round system
 		bloonsRounds: [],
@@ -106,11 +117,52 @@ export default new Vuex.Store({
 
 		// farming
 		farms: [0, 0, 0, 0, 0],
+		// inididual farms - reactive issues
+		farm1: 0,
+		farm2: 0,
+		farm3: 0,
+		farm4: 0,
+		farm5: 0,
 		openFarm: false,
+
 		currentFarm: 0,
+		currentFarmLvl: 0,
 	},
 
 	mutations: {
+		// farms
+		farm1(state) {
+			state.farm1 += 0;
+		},
+		farm2(state) {
+			state.farm1 += 0;
+		},
+		farm3(state) {
+			state.farm1 += 0;
+		},
+		farm4(state) {
+			state.farm1 += 0;
+		},
+		farm5(state) {
+			state.farm1 += 0;
+		},
+		openFarm(state, farmIndex) {
+			state.openFarm = true;
+			state.currentFarm = farmIndex;
+			state.currentFarmLvl = state.farms[farmIndex];
+			state.pause = true;
+		},
+		closeFarm(state) {
+			state.openFarm = false;
+			state.pause = false;
+		},
+		upgradeFarm(state, farmIndex) {
+			state.farms[farmIndex] += 1;
+			state[`farm${farmIndex + 1}`] += 1;
+		},
+		upgradeCurrentFarmLevel(state) {
+			state.currentFarmLvl += 1;
+		},
 		// open | close panels
 		openPanel(state, panel) {
 			state[panel] = true;
@@ -161,8 +213,14 @@ export default new Vuex.Store({
 		addCredit(state, amount) {
 			state.credit += amount;
 		},
-		setupData(state, bloonsRounds) {
+		removeCredit(state, amount) {
+			state.credit -= amount;
+		},
+		setupBloonData(state, bloonsRounds) {
 			state.bloonsRounds = bloonsRounds;
+		},
+		setupFarmData(state, farmLevels) {
+			state.farmLevels = farmLevels;
 		},
 
 		// game system control
@@ -282,7 +340,20 @@ export default new Vuex.Store({
 			state.playerHp = 10;
 
 			// money
-			state.credit = 10000000;
+			state.credit = 100;
+
+			// farms
+			state.farms = [0, 0, 0, 0, 0];
+			// inididual farms - reactive issues
+			state.farm1 = 0;
+			state.farm2 = 0;
+			state.farm3 = 0;
+			state.farm4 = 0;
+			state.farm5 = 0;
+			state.openFarm = false;
+
+			state.currentFarm = 0;
+			state.currentFarmLvl = 0;
 		},
 
 		// audio
@@ -328,6 +399,7 @@ export default new Vuex.Store({
 			let seconds = Math.floor(
 				(Date.now() - state.timeStamp) / 1000
 			);
+			const overAllSeconds = seconds;
 
 			/// add time to the timer
 			// days
@@ -351,28 +423,76 @@ export default new Vuex.Store({
 				seconds -= 60 * minutes;
 			}
 
-			console.log(days, hours, minutes, seconds);
-
 			/// remove hp
-
-			// once per three hours
 			if (!state.pause) {
-				if (hours / 3 >= 1) {
+				// once per  hours
+				if (hours >= 1) {
 					state.playerHp -=
-						Math.floor(hours / 3) *
+						hours *
 						state.bloonsRounds[state.round]
 							.demage;
 				}
+				// once per 1 min add cash
+				let credit = 0;
+				for (const farm of state.farms) {
+					console.log(!(farm - 1 < 0));
+					if (!(farm - 1 < 0)) {
+						credit =
+							credit +
+							Number(
+								state.farmLevels[farm - 1]
+									.production
+							) *
+								Math.floor(
+									overAllSeconds / 60
+								);
+					}
+				}
+				state.credit += credit;
 			}
-
-			/// add cash -> farms only
 		},
 	},
 	actions: {
+		// FARMS
+		upgradeFarm(context) {
+			// check credit
+
+			if (
+				context.state.credit >=
+				context.state.farmLevels[
+					context.state.currentFarmLvl
+				].price
+			) {
+				context.commit(
+					'removeCredit',
+					context.state.farmLevels[
+						context.state.currentFarmLvl
+					].price
+				);
+				context.commit('upgradeCurrentFarmLevel');
+				context.commit(
+					'upgradeFarm',
+					context.state.currentFarm
+				);
+			}
+		},
 		// time
 		timeTick(context) {
 			/// time
 			if (!context.state.pause) {
+				/// money
+				for (const farm of context.state.farms) {
+					if (!(farm - 1 < 0)) {
+						context.commit(
+							'addCredit',
+							Number(
+								context.state.farmLevels[
+									farm - 1
+								].production
+							)
+						);
+					}
+				}
 				/// health
 				// regular
 				if (

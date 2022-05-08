@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<!-- factoryMenu -->
-		<farmMenu v-if="false" />
+		<farmMenu v-if="this.$store.state.openFarm" />
 		<!-- Defeat -->
 		<defeat v-if="this.$store.state.defeat" />
 		<!-- Game Manual -->
@@ -50,7 +50,8 @@ import manual from '@/components/manual.vue';
 import defeat from '@/components/defeat.vue';
 import farmMenu from '@/components/farmMenu.vue';
 
-import data from './assets/data/bloonsTest.json';
+import bloonData from './assets/data/bloonsTest.json';
+import farmData from './assets/data/farms.json';
 
 export default {
 	name: 'App',
@@ -102,7 +103,8 @@ export default {
 		},
 	},
 	created() {
-		this.$store.commit('setupData', data);
+		this.$store.commit('setupBloonData', bloonData);
+		this.$store.commit('setupFarmData', farmData);
 		window.addEventListener(
 			'beforeunload',
 			this.beforePageDestroyed

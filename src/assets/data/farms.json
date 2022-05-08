@@ -3,30 +3,30 @@
 		"name": "Increased production",
 		"price": "100",
 		"production": "1",
-		"img": ""
+		"img": "01.webp"
 	},
 	{
 		"name": "Greater production",
 		"price": "1000",
 		"production": "10",
-		"img": ""
+		"img": "02.webp"
 	},
 	{
 		"name": "Banana plantation",
 		"price": "100000",
 		"production": "100",
-		"img": ""
+		"img": "03.webp"
 	},
 	{
 		"name": "Banana factory",
 		"price": "1000000",
 		"production": "1000",
-		"img": ""
+		"img": "04.webp"
 	},
 	{
 		"name": "Banana super factory",
 		"price": "10000000",
 		"production": "10000",
-		"img": ""
+		"img": "05.webp"
 	}
 ]

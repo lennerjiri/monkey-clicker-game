@@ -4,14 +4,18 @@
 		@click="openFarm"
 	>
 		<img
-			v-if="farm !== 0"
+			v-if="farmLevel !== 0"
 			:src="
-				require(`@/assets/img/farms/0${farm}.webp`)
+				require(`@/assets/img/farms/${
+					this.$store.state.farmLevels[
+						farmLevel - 1
+					].img
+				}`)
 			"
 			alt=""
 		/>
 		<font-awesome-icon
-			v-if="farm === 0"
+			v-if="farmLevel === 0"
 			icon="fa-solid fa-plus"
 		/>
 	</div>
@@ -23,6 +27,13 @@ export default {
 	props: {
 		index: Number,
 		farm: Number,
+	},
+	computed: {
+		farmLevel() {
+			return this.$store.state[
+				`farm${this.index + 1}`
+			];
+		},
 	},
 	methods: {
 		openFarm() {
