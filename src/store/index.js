@@ -95,7 +95,7 @@ export default new Vuex.Store({
 		timeStamp: '',
 
 		// cash
-		credit: 10000,
+		credit: 0,
 
 		// round system
 		bloonsRounds: [],
@@ -105,7 +105,7 @@ export default new Vuex.Store({
 		// saved in vuex
 		round: 0,
 		serial: 1,
-		bloonHp: 3,
+		bloonHp: 10,
 
 		// bloon control
 		destroyed: false,
@@ -382,7 +382,7 @@ export default new Vuex.Store({
 			// system
 			state.round = 0;
 			state.serial = 1;
-			state.bloonHp = 3;
+			state.bloonHp = 10;
 
 			state.infinityMode = false;
 			state.infinityModeMultiplier = 1;
@@ -398,7 +398,7 @@ export default new Vuex.Store({
 			state.playerHp = 10;
 
 			// money
-			state.credit = 10000;
+			state.credit = 0;
 
 			// farms
 			state.farms = [0, 0, 0, 0, 0];

@@ -5,7 +5,8 @@
 		"reward": 1,
 		"serial": 10,
 		"img": "01.png",
-		"background": "01.webp"
+		"background": "01.webp",
+		"demage": 1
 	},
 	{
 		"name": "RED",
@@ -13,7 +14,8 @@
 		"reward": 1,
 		"serial": 15,
 		"img": "01.png",
-		"background": "01.webp"
+		"background": "01.webp",
+		"demage": 1
 	},
 	{
 		"name": "BLUE",
@@ -21,7 +23,8 @@
 		"reward": 2,
 		"serial": 10,
 		"img": "02.png",
-		"background": "02.webp"
+		"background": "02.webp",
+		"demage": 2
 	},
 	{
 		"name": "BLUE",
@@ -29,7 +32,8 @@
 		"reward": 2,
 		"serial": 15,
 		"img": "02.png",
-		"background": "02.webp"
+		"background": "02.webp",
+		"demage": 2
 	},
 	{
 		"name": "GREEN",
@@ -37,7 +41,8 @@
 		"reward": 4,
 		"serial": 12,
 		"img": "03.png",
-		"background": "03.webp"
+		"background": "03.webp",
+		"demage": 4
 	},
 	{
 		"name": "GREEN",
@@ -45,7 +50,8 @@
 		"reward": 4,
 		"serial": 15,
 		"img": "03.png",
-		"background": "03.webp"
+		"background": "03.webp",
+		"demage": 4
 	},
 	{
 		"name": "GREEN",
@@ -53,7 +59,8 @@
 		"reward": 4,
 		"serial": 20,
 		"img": "03.png",
-		"background": "03.webp"
+		"background": "03.webp",
+		"demage": 4
 	},
 	{
 		"name": "GREEN",
@@ -61,7 +68,8 @@
 		"reward": 4,
 		"serial": 25,
 		"img": "03.png",
-		"background": "03.webp"
+		"background": "03.webp",
+		"demage": 4
 	},
 	{
 		"name": "YELLOW",
@@ -69,7 +77,8 @@
 		"reward": 7,
 		"serial": 20,
 		"img": "04.png",
-		"background": "04.webp"
+		"background": "04.webp",
+		"demage": 8
 	},
 	{
 		"name": "YELLOW",
@@ -77,7 +86,8 @@
 		"reward": 7,
 		"serial": 25,
 		"img": "04.png",
-		"background": "04.webp"
+		"background": "04.webp",
+		"demage": 8
 	},
 	{
 		"name": "YELLOW",
@@ -85,7 +95,8 @@
 		"reward": 7,
 		"serial": 30,
 		"img": "04.png",
-		"background": "04.webp"
+		"background": "04.webp",
+		"demage": 8
 	},
 	{
 		"name": "YELLOW",
@@ -93,7 +104,8 @@
 		"reward": 7,
 		"serial": 35,
 		"img": "04.png",
-		"background": "04.webp"
+		"background": "04.webp",
+		"demage": 8
 	},
 	{
 		"name": "PINK",
@@ -101,7 +113,8 @@
 		"reward": 10,
 		"serial": 20,
 		"img": "05.png",
-		"background": "05.webp"
+		"background": "05.webp",
+		"demage": 16
 	},
 	{
 		"name": "PINK",
@@ -117,7 +130,8 @@
 		"reward": 10,
 		"serial": 30,
 		"img": "05.png",
-		"background": "05.webp"
+		"background": "05.webp",
+		"demage": 16
 	},
 	{
 		"name": "PINK",
@@ -125,7 +139,8 @@
 		"reward": 10,
 		"serial": 40,
 		"img": "05.png",
-		"background": "05.webp"
+		"background": "05.webp",
+		"demage": 16
 	},
 	{
 		"name": "PINK",
@@ -133,7 +148,8 @@
 		"reward": 10,
 		"serial": 45,
 		"img": "05.png",
-		"background": "05.webp"
+		"background": "05.webp",
+		"demage": 16
 	},
 	{
 		"name": "PURPLE",
@@ -141,7 +157,8 @@
 		"reward": 15,
 		"serial": 25,
 		"img": "06.png",
-		"background": "06.webp"
+		"background": "06.webp",
+		"demage": 32
 	},
 	{
 		"name": "PURPLE",
@@ -157,7 +174,8 @@
 		"reward": 15,
 		"serial": 35,
 		"img": "06.png",
-		"background": "06.webp"
+		"background": "06.webp",
+		"demage": 32
 	},
 	{
 		"name": "PURPLE",
@@ -165,7 +183,8 @@
 		"reward": 15,
 		"serial": 40,
 		"img": "06.png",
-		"background": "06.webp"
+		"background": "06.webp",
+		"demage": 32
 	},
 	{
 		"name": "PURPLE",
@@ -173,7 +192,8 @@
 		"reward": 15,
 		"serial": 45,
 		"img": "06.png",
-		"background": "06.webp"
+		"background": "06.webp",
+		"demage": 32
 	},
 	{
 		"name": "TIGER",
@@ -181,7 +201,8 @@
 		"reward": 30,
 		"serial": 25,
 		"img": "07.png",
-		"background": "07.webp"
+		"background": "07.webp",
+		"demage": 64
 	},
 	{
 		"name": "TIGER",
@@ -189,7 +210,8 @@
 		"reward": 30,
 		"serial": 30,
 		"img": "07.png",
-		"background": "07.webp"
+		"background": "07.webp",
+		"demage": 64
 	},
 	{
 		"name": "TIGER",
@@ -197,7 +219,8 @@
 		"reward": 30,
 		"serial": 35,
 		"img": "07.png",
-		"background": "07.webp"
+		"background": "07.webp",
+		"demage": 64
 	},
 	{
 		"name": "TIGER",
@@ -205,7 +228,8 @@
 		"reward": 30,
 		"serial": 40,
 		"img": "07.png",
-		"background": "07.webp"
+		"background": "07.webp",
+		"demage": 64
 	},
 	{
 		"name": "TIGER",
@@ -213,7 +237,8 @@
 		"reward": 30,
 		"serial": 40,
 		"img": "07.png",
-		"background": "07.webp"
+		"background": "07.webp",
+		"demage": 64
 	},
 	{
 		"name": "TIGER",
@@ -221,7 +246,8 @@
 		"reward": 30,
 		"serial": 50,
 		"img": "07.png",
-		"background": "07.webp"
+		"background": "07.webp",
+		"demage": 64
 	},
 	{
 		"name": "LGBT",
@@ -229,7 +255,8 @@
 		"reward": 50,
 		"serial": 30,
 		"img": "08.png",
-		"background": "08.webp"
+		"background": "08.webp",
+		"demage": 150
 	},
 	{
 		"name": "LGBT",
@@ -237,7 +264,8 @@
 		"reward": 50,
 		"serial": 35,
 		"img": "08.png",
-		"background": "08.webp"
+		"background": "08.webp",
+		"demage": 150
 	},
 	{
 		"name": "LGBT",
@@ -245,7 +273,8 @@
 		"reward": 50,
 		"serial": 40,
 		"img": "08.png",
-		"background": "08.webp"
+		"background": "08.webp",
+		"demage": 150
 	},
 	{
 		"name": "LGBT",
@@ -253,7 +282,8 @@
 		"reward": 50,
 		"serial": 50,
 		"img": "08.png",
-		"background": "08.webp"
+		"background": "08.webp",
+		"demage": 150
 	},
 	{
 		"name": "LGBT",
@@ -261,7 +291,8 @@
 		"reward": 50,
 		"serial": 20,
 		"img": "08.png",
-		"background": "08.webp"
+		"background": "08.webp",
+		"demage": 150
 	},
 	{
 		"name": "LGBT",
@@ -269,7 +300,8 @@
 		"reward": 50,
 		"serial": 15,
 		"img": "08.png",
-		"background": "08.webp"
+		"background": "08.webp",
+		"demage": 150
 	},
 	{
 		"name": "RHYNO",
@@ -277,7 +309,8 @@
 		"reward": 80,
 		"serial": 10,
 		"img": "09.png",
-		"background": "09.webp"
+		"background": "09.webp",
+		"demage": 500
 	},
 	{
 		"name": "RHYNO",
@@ -285,7 +318,8 @@
 		"reward": 80,
 		"serial": 20,
 		"img": "09.png",
-		"background": "09.webp"
+		"background": "09.webp",
+		"demage": 500
 	},
 	{
 		"name": "RHYNO",
@@ -293,7 +327,8 @@
 		"reward": 80,
 		"serial": 25,
 		"img": "09.png",
-		"background": "09.webp"
+		"background": "09.webp",
+		"demage": 500
 	},
 	{
 		"name": "RHYNO",
@@ -301,7 +336,8 @@
 		"reward": 80,
 		"serial": 40,
 		"img": "09.png",
-		"background": "09.webp"
+		"background": "09.webp",
+		"demage": 500
 	},
 	{
 		"name": "RHYNO",
@@ -309,7 +345,8 @@
 		"reward": 80,
 		"serial": 15,
 		"img": "09.png",
-		"background": "09.webp"
+		"background": "09.webp",
+		"demage": 500
 	},
 	{
 		"name": "RHYNO",
@@ -317,7 +354,8 @@
 		"reward": 80,
 		"serial": 5,
 		"img": "09.png",
-		"background": "09.webp"
+		"background": "09.webp",
+		"demage": 500
 	},
 	{
 		"name": "HIVE",
@@ -325,7 +363,8 @@
 		"reward": 100,
 		"serial": 10,
 		"img": "10.png",
-		"background": "10.webp"
+		"background": "10.webp",
+		"demage": 1000
 	},
 	{
 		"name": "HIVE",
@@ -333,7 +372,8 @@
 		"reward": 100,
 		"serial": 15,
 		"img": "10.png",
-		"background": "10.webp"
+		"background": "10.webp",
+		"demage": 1000
 	},
 	{
 		"name": "HIVE",
@@ -341,7 +381,8 @@
 		"reward": 100,
 		"serial": 25,
 		"img": "10.png",
-		"background": "10.webp"
+		"background": "10.webp",
+		"demage": 1000
 	},
 	{
 		"name": "HIVE",
@@ -349,7 +390,8 @@
 		"reward": 100,
 		"serial": 40,
 		"img": "10.png",
-		"background": "10.webp"
+		"background": "10.webp",
+		"demage": 1000
 	},
 	{
 		"name": "HIVE",
@@ -357,7 +399,8 @@
 		"reward": 100,
 		"serial": 20,
 		"img": "10.png",
-		"background": "10.webp"
+		"background": "10.webp",
+		"demage": 1000
 	},
 	{
 		"name": "HIVE",
@@ -365,7 +408,8 @@
 		"reward": 100,
 		"serial": 25,
 		"img": "10.png",
-		"background": "10.webp"
+		"background": "10.webp",
+		"demage": 1000
 	},
 	{
 		"name": "WHALE",
@@ -373,7 +417,8 @@
 		"reward": 500,
 		"serial": 5,
 		"img": "11.webp",
-		"background": "11.webp"
+		"background": "11.webp",
+		"demage": 1000
 	},
 	{
 		"name": "WHALE",
@@ -381,7 +426,8 @@
 		"reward": 500,
 		"serial": 7,
 		"img": "11.webp",
-		"background": "11.webp"
+		"background": "11.webp",
+		"demage": 5000
 	},
 	{
 		"name": "WHALE",
@@ -389,7 +435,8 @@
 		"reward": 500,
 		"serial": 9,
 		"img": "11.webp",
-		"background": "11.webp"
+		"background": "11.webp",
+		"demage": 5000
 	},
 	{
 		"name": "WHALE",
@@ -397,7 +444,8 @@
 		"reward": 500,
 		"serial": 4,
 		"img": "11.webp",
-		"background": "11.webp"
+		"background": "11.webp",
+		"demage": 5000
 	},
 	{
 		"name": "WHALE",
@@ -405,7 +453,8 @@
 		"reward": 500,
 		"serial": 12,
 		"img": "11.webp",
-		"background": "11.webp"
+		"background": "11.webp",
+		"demage": 5000
 	},
 	{
 		"name": "AIRBUS",
@@ -413,7 +462,8 @@
 		"reward": 3000,
 		"serial": 5,
 		"img": "12.webp",
-		"background": "12.webp"
+		"background": "12.webp",
+		"demage": 10000
 	},
 	{
 		"name": "AIRBUS",
@@ -421,7 +471,8 @@
 		"reward": 3000,
 		"serial": 7,
 		"img": "12.webp",
-		"background": "12.webp"
+		"background": "12.webp",
+		"demage": 10000
 	},
 	{
 		"name": "AIRBUS",
@@ -429,7 +480,8 @@
 		"reward": 3000,
 		"serial": 10,
 		"img": "12.webp",
-		"background": "12.webp"
+		"background": "12.webp",
+		"demage": 10000
 	},
 	{
 		"name": "AIRBUS",
@@ -437,7 +489,8 @@
 		"reward": 3000,
 		"serial": 15,
 		"img": "12.webp",
-		"background": "12.webp"
+		"background": "12.webp",
+		"demage": 10000
 	},
 	{
 		"name": "AIRBUS",
@@ -445,7 +498,8 @@
 		"reward": 3000,
 		"serial": 17,
 		"img": "12.webp",
-		"background": "12.webp"
+		"background": "12.webp",
+		"demage": 10000
 	},
 	{
 		"name": "POISON",
@@ -453,7 +507,8 @@
 		"reward": 10000,
 		"serial": 5,
 		"img": "13.webp",
-		"background": "13.webp"
+		"background": "13.webp",
+		"demage": 20000
 	},
 	{
 		"name": "POISON",
@@ -461,7 +516,8 @@
 		"reward": 10000,
 		"serial": 7,
 		"img": "13.webp",
-		"background": "13.webp"
+		"background": "13.webp",
+		"demage": 20000
 	},
 	{
 		"name": "POISON",
@@ -469,7 +525,8 @@
 		"reward": 10000,
 		"serial": 3,
 		"img": "13.webp",
-		"background": "13.webp"
+		"background": "13.webp",
+		"demage": 20000
 	},
 	{
 		"name": "POISON",
@@ -477,7 +534,8 @@
 		"reward": 10000,
 		"serial": 2,
 		"img": "13.webp",
-		"background": "13.webp"
+		"background": "13.webp",
+		"demage": 20000
 	},
 	{
 		"name": "POISON",
@@ -485,7 +543,8 @@
 		"reward": 10000,
 		"serial": 3,
 		"img": "13.webp",
-		"background": "13.webp"
+		"background": "13.webp",
+		"demage": 20000
 	},
 	{
 		"name": "POISON",
@@ -493,7 +552,8 @@
 		"reward": 10000,
 		"serial": 6,
 		"img": "13.webp",
-		"background": "13.webp"
+		"background": "13.webp",
+		"demage": 20000
 	},
 	{
 		"name": "POISON",
@@ -501,7 +561,8 @@
 		"reward": 10000,
 		"serial": 10,
 		"img": "13.webp",
-		"background": "13.webp"
+		"background": "13.webp",
+		"demage": 20000
 	},
 	{
 		"name": "TURBO",
@@ -509,7 +570,8 @@
 		"reward": 50000,
 		"serial": 3,
 		"img": "15.webp",
-		"background": "15.webp"
+		"background": "15.webp",
+		"demage": 50000
 	},
 	{
 		"name": "TURBO",
@@ -517,7 +579,8 @@
 		"reward": 50000,
 		"serial": 5,
 		"img": "15.webp",
-		"background": "15.webp"
+		"background": "15.webp",
+		"demage": 50000
 	},
 	{
 		"name": "TURBO",
@@ -525,7 +588,8 @@
 		"reward": 50000,
 		"serial": 3,
 		"img": "15.webp",
-		"background": "15.webp"
+		"background": "15.webp",
+		"demage": 50000
 	},
 	{
 		"name": "TURBO",
@@ -533,7 +597,8 @@
 		"reward": 50000,
 		"serial": 10,
 		"img": "15.webp",
-		"background": "15.webp"
+		"background": "15.webp",
+		"demage": 50000
 	},
 	{
 		"name": "TURBO",
@@ -541,7 +606,8 @@
 		"reward": 50000,
 		"serial": 6,
 		"img": "15.webp",
-		"background": "15.webp"
+		"background": "15.webp",
+		"demage": 50000
 	},
 	{
 		"name": "DEATH",
@@ -549,7 +615,8 @@
 		"reward": 100000,
 		"serial": 3,
 		"img": "16.webp",
-		"background": "16.webp"
+		"background": "16.webp",
+		"demage": 100000
 	},
 	{
 		"name": "DEATH",
@@ -557,7 +624,8 @@
 		"reward": 100000,
 		"serial": 5,
 		"img": "16.webp",
-		"background": "16.webp"
+		"background": "16.webp",
+		"demage": 100000
 	},
 	{
 		"name": "DEATH",
@@ -565,7 +633,8 @@
 		"reward": 100000,
 		"serial": 4,
 		"img": "16.webp",
-		"background": "16.webp"
+		"background": "16.webp",
+		"demage": 100000
 	},
 	{
 		"name": "DEATH",
@@ -573,7 +642,8 @@
 		"reward": 100000,
 		"serial": 2,
 		"img": "16.webp",
-		"background": "16.webp"
+		"background": "16.webp",
+		"demage": 100000
 	},
 	{
 		"name": "RAMPAGE",
@@ -581,7 +651,8 @@
 		"reward": 200000,
 		"serial": 1,
 		"img": "17.webp",
-		"background": "17.webp"
+		"background": "17.webp",
+		"demage": 500000
 	},
 	{
 		"name": "RAMPAGE",
@@ -589,7 +660,8 @@
 		"reward": 200000,
 		"serial": 3,
 		"img": "17.webp",
-		"background": "17.webp"
+		"background": "17.webp",
+		"demage": 500000
 	},
 	{
 		"name": "RAMPAGE",
@@ -597,7 +669,8 @@
 		"reward": 200000,
 		"serial": 2,
 		"img": "17.webp",
-		"background": "17.webp"
+		"background": "17.webp",
+		"demage": 500000
 	},
 	{
 		"name": "RAMPAGE",
@@ -605,7 +678,8 @@
 		"reward": 200000,
 		"serial": 4,
 		"img": "17.webp",
-		"background": "17.webp"
+		"background": "17.webp",
+		"demage": 500000
 	},
 	{
 		"name": "DOOM",
@@ -613,7 +687,8 @@
 		"reward": 500000,
 		"serial": 4,
 		"img": "18.webp",
-		"background": "18.webp"
+		"background": "18.webp",
+		"demage": 1000000
 	},
 	{
 		"name": "DOOM",
@@ -621,7 +696,8 @@
 		"reward": 500000,
 		"serial": 4,
 		"img": "18.webp",
-		"background": "18.webp"
+		"background": "18.webp",
+		"demage": 1000000
 	},
 	{
 		"name": "DOOM",
@@ -629,7 +705,8 @@
 		"reward": 500000,
 		"serial": 4,
 		"img": "18.webp",
-		"background": "18.webp"
+		"background": "18.webp",
+		"demage": 1000000
 	},
 	{
 		"name": "DOOM",
@@ -637,7 +714,8 @@
 		"reward": 500000,
 		"serial": 4,
 		"img": "18.webp",
-		"background": "18.webp"
+		"background": "18.webp",
+		"demage": 1000000
 	},
 	{
 		"name": "EVANGELION",
@@ -645,6 +723,7 @@
 		"reward": 10000000,
 		"serial": 1,
 		"img": "19.webp",
-		"background": "19.webp"
+		"background": "19.webp",
+		"demage": 5000000
 	}
 ]

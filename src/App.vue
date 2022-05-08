@@ -59,7 +59,7 @@ import classMenu from '@/components/classMenu.vue';
 import powerMenu from '@/components/powerMenu.vue';
 import healthMenu from '@/components/healthMenu.vue';
 
-import bloonData from './assets/data/bloonsTest.json';
+import bloonData from './assets/data/bloons.json';
 import farmData from './assets/data/farms.json';
 import classData from './assets/data/class.json';
 
