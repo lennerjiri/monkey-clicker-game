@@ -11,15 +11,16 @@
 			</div>
 			<h1>MANUAL</h1>
 			<div>
-				<h2>BASICS</h2>
+				<h2>MONK CLICKER HD</h2>
 				<p>
 					Welcome to this epic and strategic
 					clicker game. As you probably noticed
-					this i not one of your oridinary clicker
-					games. The goal of this game is clear
-					all rounds as quickly as possible. After
-					defeating the final bloon the victory
-					menu will be shown with your time score.
+					this is not one of your oridinary
+					clicker games. The goal of this game is
+					clear all rounds as quickly as possible.
+					After defeating the final bloon the
+					victory menu will be shown with your
+					time score.
 				</p>
 				<h2>RULES</h2>
 				<p>

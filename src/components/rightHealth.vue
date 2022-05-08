@@ -15,11 +15,23 @@
 		</div>
 		<div class="body__rightBar__nameContainer">
 			<div>
-				<p>MONK</p>
-				<p>500 DM</p>
+				<p>
+					{{
+						this.$store.state.classes[
+							this.$store.state.class
+						].name
+					}}
+				</p>
+				<p>{{ demage }} - DM</p>
 			</div>
 			<img
-				:src="require('@/assets/img/class/01.png')"
+				:src="
+					require(`@/assets/img/class/${
+						this.$store.state.classes[
+							this.$store.state.class
+						].img
+					}`)
+				"
 				alt=""
 			/>
 		</div>
@@ -35,7 +47,13 @@ export default {
 		},
 
 		playerMaxHp() {
-			return this.$store.state.playerMaxHp;
+			return this.$store.state.classes[
+				this.$store.state.class
+			].health;
+		},
+
+		demage() {
+			return this.$store.state.demage;
 		},
 
 		playerHpPercentage() {
@@ -44,7 +62,9 @@ export default {
 			return (
 				100 -
 				(this.$store.state.playerHp * 100) /
-					this.$store.state.playerMaxHp
+					this.$store.state.classes[
+						this.$store.state.class
+					].health
 			);
 		},
 	},

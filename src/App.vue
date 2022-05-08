@@ -1,5 +1,7 @@
 <template>
 	<div id="app">
+		<!-- classMenu -->
+		<classMenu v-if="this.$store.state.openClass" />
 		<!-- factoryMenu -->
 		<farmMenu v-if="this.$store.state.openFarm" />
 		<!-- Defeat -->
@@ -49,9 +51,11 @@ import victory from '@/components/victory.vue';
 import manual from '@/components/manual.vue';
 import defeat from '@/components/defeat.vue';
 import farmMenu from '@/components/farmMenu.vue';
+import classMenu from '@/components/classMenu.vue';
 
 import bloonData from './assets/data/bloonsTest.json';
 import farmData from './assets/data/farms.json';
+import classData from './assets/data/class.json';
 
 export default {
 	name: 'App',
@@ -67,6 +71,7 @@ export default {
 		manual,
 		defeat,
 		farmMenu,
+		classMenu,
 	},
 	data() {
 		return {
@@ -105,6 +110,8 @@ export default {
 	created() {
 		this.$store.commit('setupBloonData', bloonData);
 		this.$store.commit('setupFarmData', farmData);
+		this.$store.commit('setupClassData', classData);
+
 		window.addEventListener(
 			'beforeunload',
 			this.beforePageDestroyed

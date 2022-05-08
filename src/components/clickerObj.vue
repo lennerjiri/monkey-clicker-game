@@ -35,13 +35,19 @@
 
 		<img
 			class="body__main__monk"
-			src="@/assets/img/class/01.png"
+			:src="
+				require(`@/assets/img/class/${
+					this.$store.state.classes[
+						this.$store.state.class
+					].img
+				}`)
+			"
 			@click="click(), runAnimation()"
 			alt=""
 			ondragstart="return false;"
 		/>
 		<img
-			src="@/assets/img/weapons/arrow.png"
+			src="@/assets/img/assets/arrow.png"
 			class="body__main__arrow"
 			@animationend="restartAnimation()"
 			:class="{

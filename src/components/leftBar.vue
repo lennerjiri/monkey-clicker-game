@@ -22,7 +22,13 @@
 				class="body__leftPanelUser__weapons--weaponUpgrade"
 			>
 				<img
-					src="@/assets/img/weapons/arrow.png"
+					:src="
+						require(`@/assets/img/weapons/${
+							this.$store.state.classes[
+								this.$store.state.class
+							].weaponImg
+						}`)
+					"
 					alt=""
 				/>
 			</div>
@@ -31,9 +37,16 @@
 			<p>Class</p>
 			<div
 				class="body__leftPanelUser__class--classSelect"
+				@click="openClass"
 			>
 				<img
-					src="@/assets/img/class/01.png"
+					:src="
+						require(`@/assets/img/class/${
+							this.$store.state.classes[
+								this.$store.state.class
+							].img
+						}`)
+					"
 					alt=""
 				/>
 			</div>
@@ -45,7 +58,10 @@
 			<div
 				class="body__leftPanelUser__mobility--mobilityUpgrade"
 			>
-				<img src="" alt="" />
+				<img
+					src="@/assets/img/health/01.png"
+					alt=""
+				/>
 			</div>
 		</div>
 		<div class="body__leftPanelUser__ability selectBox">
@@ -54,7 +70,13 @@
 				class="body__leftPanelUser__ability--abilityUpgrade"
 			>
 				<img
-					src="@/assets/img/charge/power.png"
+					:src="
+						require(`@/assets/img/charge/${
+							this.$store.state.classes[
+								this.$store.state.class
+							].chargeImg
+						}`)
+					"
 					alt=""
 				/>
 			</div>
@@ -66,7 +88,11 @@
 export default {
 	name: 'leftBar',
 	computed: {},
-	methods: {},
+	methods: {
+		openClass() {
+			this.$store.commit('openClass');
+		},
+	},
 };
 </script>
 

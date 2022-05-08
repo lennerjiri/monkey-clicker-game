@@ -1,0 +1,120 @@
+.body__classMenu__background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(80, 80, 80, 0.5);
+	z-index: 1;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.classMenu__background__contentContainer {
+		box-sizing: border-box;
+		padding: 2.5rem;
+
+		background-color: #c56c40;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		border: solid 10px #663220;
+		border-radius: 1rem;
+
+		position: relative;
+
+		overflow: scroll;
+		max-height: 50rem;
+
+		> h1 {
+			color: #fbb101;
+			-webkit-text-stroke-width: 3px;
+			-webkit-text-stroke-color: black;
+
+			font-size: 6rem;
+			padding: 0 10rem;
+			margin-bottom: 2rem;
+		}
+
+		.contentContainer__close {
+			position: absolute;
+			top: 1rem;
+			right: 2rem;
+			font-size: 4rem;
+			padding: 1rem;
+
+			transition: color 100ms ease;
+			color: #663220;
+
+			&:hover {
+				color: #fb0101;
+				cursor: pointer;
+			}
+		}
+
+		.contentContainer__maxLevel {
+			font-size: 3rem;
+			color: #fb0101;
+			-webkit-text-stroke-width: 3px;
+			-webkit-text-stroke-color: black;
+		}
+
+		.contentContainer__upgradeButton {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 80%;
+			background-color: #ed8550;
+			padding: 2rem;
+			border-radius: 0.5rem;
+			border: solid 0.5rem #663220;
+			&:hover {
+				background-color: #e98a5a;
+				cursor: pointer;
+			}
+
+			.upgradeButton__imgAndInfo {
+				> img {
+					width: 4rem;
+				}
+				display: flex;
+				gap: 1.5rem;
+				align-items: center;
+
+				> div {
+					> h2 {
+						font-size: 1.5rem;
+						margin-bottom: 0.5rem;
+						color: #fbb101;
+						-webkit-text-stroke-width: 2px;
+						-webkit-text-stroke-color: black;
+					}
+					> p {
+						font-size: 1.25rem;
+						span {
+							font-size: 1.5rem;
+						}
+					}
+				}
+			}
+
+			.upgradeButton__price {
+				font-size: 1.75rem;
+				display: flex;
+				color: rgb(0, 135, 0);
+				-webkit-text-stroke-width: 2px;
+				-webkit-text-stroke-color: black;
+			}
+			.upgradeButton__price___unavailable {
+				color: red;
+			}
+		}
+		.contentContainer__upgradeButton___unavailable {
+			&:hover {
+				cursor: not-allowed;
+			}
+		}
+	}
+}

@@ -56,6 +56,10 @@ const vuexLocal = new VuexPersistence({
 		currentFarmLvl: state.currentFarmLvl,
 
 		openFarm: state.openFarm,
+
+		// class
+		class: state.class,
+		openClass: state.openClass,
 	}),
 });
 
@@ -80,11 +84,12 @@ export default new Vuex.Store({
 		timeStamp: '',
 
 		// cash
-		credit: 100,
+		credit: 10000000000000,
 
 		// round system
 		bloonsRounds: [],
 		farmLevels: [],
+		classes: [],
 
 		// saved in vuex
 		round: 0,
@@ -109,7 +114,6 @@ export default new Vuex.Store({
 
 		// player control
 		playerHp: 10,
-		playerMaxHp: 10,
 
 		// demage timers
 		hpRegularDemageTimer: 5,
@@ -127,6 +131,13 @@ export default new Vuex.Store({
 
 		currentFarm: 0,
 		currentFarmLvl: 0,
+
+		// class
+		class: 0,
+		openClass: false,
+
+		// demage
+		demage: 1,
 	},
 
 	mutations: {
@@ -154,6 +165,14 @@ export default new Vuex.Store({
 		},
 		closeFarm(state) {
 			state.openFarm = false;
+			state.pause = false;
+		},
+		openClass(state) {
+			state.openClass = true;
+			state.pause = true;
+		},
+		closeClass(state) {
+			state.openClass = false;
 			state.pause = false;
 		},
 		upgradeFarm(state, farmIndex) {
@@ -221,6 +240,9 @@ export default new Vuex.Store({
 		},
 		setupFarmData(state, farmLevels) {
 			state.farmLevels = farmLevels;
+		},
+		setupClassData(state, classes) {
+			state.classes = classes;
 		},
 
 		// game system control
@@ -340,7 +362,7 @@ export default new Vuex.Store({
 			state.playerHp = 10;
 
 			// money
-			state.credit = 100;
+			state.credit = 10000000000000;
 
 			// farms
 			state.farms = [0, 0, 0, 0, 0];
@@ -354,6 +376,9 @@ export default new Vuex.Store({
 
 			state.currentFarm = 0;
 			state.currentFarmLvl = 0;
+
+			// class
+			state.class = 0;
 		},
 
 		// audio
@@ -451,6 +476,24 @@ export default new Vuex.Store({
 				state.credit += credit;
 			}
 		},
+		// health
+		fullHeal(state) {
+			state.playerHp =
+				state.classes[state.class].health;
+		},
+		halfHeal(state) {
+			state.playerHp +=
+				state.classes[state.class].health / 2;
+		},
+		quarterHeal(state) {
+			state.playerHp +=
+				state.classes[state.class].health / 4;
+		},
+
+		// class
+		upgradeClass(state) {
+			state.class += 1;
+		},
 	},
 	actions: {
 		// FARMS
@@ -476,6 +519,24 @@ export default new Vuex.Store({
 				);
 			}
 		},
+		upgradeClass(context) {
+			if (
+				context.state.credit >=
+				context.state.classes[
+					context.state.class + 1
+				].price
+			) {
+				context.commit(
+					'removeCredit',
+					context.state.classes[
+						context.state.class + 1
+					].price
+				);
+				context.commit('upgradeClass');
+				context.commit('fullHeal');
+			}
+		},
+
 		// time
 		timeTick(context) {
 			/// time
