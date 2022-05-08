@@ -60,7 +60,7 @@
 			font-size: 1.5rem;
 			margin-bottom: 0.5em;
 		}
-		div {
+		> div {
 			width: 4rem;
 			height: 4rem;
 			display: flex;
@@ -69,6 +69,7 @@
 			border-radius: 7px;
 			background-color: #53b5f7;
 			border: solid 5px #1b2f31;
+			position: relative;
 			img {
 				height: auto;
 				width: 80%;
@@ -78,6 +79,16 @@
 			&:hover {
 				cursor: pointer;
 				background-color: #96cdf2;
+			}
+			.selectBox___load {
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(0, 0, 0, 0.444);
+				cursor: not-allowed;
+				z-index: 1;
 			}
 		}
 	}

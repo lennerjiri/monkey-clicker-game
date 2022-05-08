@@ -70,7 +70,12 @@
 			<p>Charge</p>
 			<div
 				class="body__leftPanelUser__ability--abilityUpgrade"
+				@click="charge"
 			>
+				<div
+					v-if="this.$store.state.charge"
+					class="selectBox___load"
+				></div>
 				<img
 					:src="
 						require(`@/assets/img/charge/${
@@ -99,6 +104,9 @@ export default {
 		},
 		openHealth() {
 			this.$store.commit('openHealth');
+		},
+		charge() {
+			this.$store.commit('enableCharge');
 		},
 	},
 };

@@ -22,7 +22,18 @@
 						].name
 					}}
 				</p>
-				<p>{{ demage }} - DM</p>
+				<p v-if="!this.$store.state.charge">
+					{{ demage }} - DM
+				</p>
+				<p v-if="this.$store.state.charge">
+					{{
+						demage *
+						this.$store.state.classes[
+							this.$store.state.class
+						].chargeBoost
+					}}
+					- DM
+				</p>
 			</div>
 			<img
 				:src="

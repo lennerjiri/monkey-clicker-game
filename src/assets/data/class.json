@@ -10,7 +10,7 @@
 	{
 		"name": "Wiz",
 		"health": 100,
-		"chargeBoost": 2.5,
+		"chargeBoost": 3,
 		"img": "02.webp",
 		"chargeImg": "02.webp",
 		"weaponImg": "02.webp",
@@ -19,7 +19,7 @@
 	{
 		"name": "Pasta",
 		"health": 1000,
-		"chargeBoost": 3,
+		"chargeBoost": 4,
 		"img": "03.webp",
 		"chargeImg": "03.webp",
 		"weaponImg": "03.webp",
@@ -28,7 +28,7 @@
 	{
 		"name": "Permafrost",
 		"health": 10000,
-		"chargeBoost": 3.5,
+		"chargeBoost": 5,
 		"img": "04.webp",
 		"chargeImg": "04.webp",
 		"weaponImg": "04.webp",
@@ -37,7 +37,7 @@
 	{
 		"name": "Edward Elric",
 		"health": 100000,
-		"chargeBoost": 4,
+		"chargeBoost": 6,
 		"img": "05.webp",
 		"chargeImg": "05.webp",
 		"weaponImg": "05.webp",
@@ -46,7 +46,7 @@
 	{
 		"name": "Pluton",
 		"health": 1000000,
-		"chargeBoost": 5,
+		"chargeBoost": 7,
 		"img": "06.webp",
 		"chargeImg": "06.webp",
 		"weaponImg": "06.webp",

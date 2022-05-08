@@ -68,6 +68,9 @@ const vuexLocal = new VuexPersistence({
 
 		// health
 		openHealth: state.openHealth,
+
+		charge: state.charge,
+		chargeClock: state.chargeClock,
 	}),
 });
 
@@ -151,6 +154,10 @@ export default new Vuex.Store({
 
 		// health
 		openHealth: false,
+
+		// charge
+		charge: false,
+		chargeClock: 0,
 	},
 
 	mutations: {
@@ -412,6 +419,10 @@ export default new Vuex.Store({
 			// power
 			state.demage = 1;
 			state.demagePrice = 100;
+
+			// charge
+			state.charge = false;
+			state.chargeClock = 0;
 		},
 
 		// audio
@@ -493,7 +504,6 @@ export default new Vuex.Store({
 				// once per 1 min add cash
 				let credit = 0;
 				for (const farm of state.farms) {
-					console.log(!(farm - 1 < 0));
 					if (!(farm - 1 < 0)) {
 						credit =
 							credit +
@@ -533,6 +543,19 @@ export default new Vuex.Store({
 		},
 		upgradeDemage(state) {
 			state.demage = state.demage * 2;
+		},
+
+		// charge
+		enableCharge(state) {
+			state.charge = true;
+			state.chargeClock =
+				state.classes[state.class].chargeBoost;
+		},
+		subtractChargeClock(state) {
+			state.chargeClock -= 1;
+		},
+		disableCharge(state) {
+			state.charge = false;
 		},
 	},
 	actions: {
@@ -635,6 +658,19 @@ export default new Vuex.Store({
 						);
 					}
 				}
+				// charge
+				if (
+					context.state.chargeClock >= 1 &&
+					context.state.charge
+				) {
+					context.commit('subtractChargeClock');
+				} else if (
+					context.state.charge &&
+					context.state.chargeClock < 1
+				) {
+					context.commit('disableCharge');
+				}
+
 				/// health
 				// regular
 				if (
@@ -729,7 +765,15 @@ export default new Vuex.Store({
 			}
 		},
 		click(context) {
-			const demage = context.state.demage;
+			let demage = context.state.demage;
+
+			if (context.state.charge) {
+				demage *=
+					context.state.classes[
+						context.state.class
+					].chargeBoost;
+			}
+
 			context.commit('reduceBloonHp', demage);
 
 			// demage timer reset for 5 sec
