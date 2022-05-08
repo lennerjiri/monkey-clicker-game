@@ -57,6 +57,7 @@
 		>
 			<p>Health</p>
 			<div
+				@click="openHealth"
 				class="body__leftPanelUser__mobility--mobilityUpgrade"
 			>
 				<img
@@ -95,6 +96,9 @@ export default {
 		},
 		openPower() {
 			this.$store.commit('openPower');
+		},
+		openHealth() {
+			this.$store.commit('openHealth');
 		},
 	},
 };

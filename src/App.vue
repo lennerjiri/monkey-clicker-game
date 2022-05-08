@@ -1,5 +1,7 @@
 <template>
 	<div id="app">
+		<!-- healthMenu -->
+		<healthMenu v-if="this.$store.state.openHealth" />
 		<!-- Power menu -->
 		<powerMenu v-if="this.$store.state.openPower" />
 		<!-- classMenu -->
@@ -55,6 +57,7 @@ import defeat from '@/components/defeat.vue';
 import farmMenu from '@/components/farmMenu.vue';
 import classMenu from '@/components/classMenu.vue';
 import powerMenu from '@/components/powerMenu.vue';
+import healthMenu from '@/components/healthMenu.vue';
 
 import bloonData from './assets/data/bloonsTest.json';
 import farmData from './assets/data/farms.json';
@@ -76,6 +79,7 @@ export default {
 		farmMenu,
 		classMenu,
 		powerMenu,
+		healthMenu,
 	},
 	data() {
 		return {

@@ -65,6 +65,9 @@ const vuexLocal = new VuexPersistence({
 		openPower: state.openPower,
 		demage: state.demage,
 		demagePrice: state.demagePrice,
+
+		// health
+		openHealth: state.openHealth,
 	}),
 });
 
@@ -89,7 +92,7 @@ export default new Vuex.Store({
 		timeStamp: '',
 
 		// cash
-		credit: 10000000000000,
+		credit: 10000,
 
 		// round system
 		bloonsRounds: [],
@@ -145,6 +148,9 @@ export default new Vuex.Store({
 		demage: 1,
 		demagePrice: 100,
 		openPower: false,
+
+		// health
+		openHealth: false,
 	},
 
 	mutations: {
@@ -329,6 +335,14 @@ export default new Vuex.Store({
 			state.openPower = false;
 			state.pause = false;
 		},
+		openHealth(state) {
+			state.openHealth = true;
+			state.pause = true;
+		},
+		closeHealth(state) {
+			state.openHealth = false;
+			state.pause = false;
+		},
 
 		openManual(state) {
 			state.manual = true;
@@ -377,7 +391,7 @@ export default new Vuex.Store({
 			state.playerHp = 10;
 
 			// money
-			state.credit = 10000000000000;
+			state.credit = 10000;
 
 			// farms
 			state.farms = [0, 0, 0, 0, 0];
@@ -522,6 +536,31 @@ export default new Vuex.Store({
 		},
 	},
 	actions: {
+		// health
+		heal(context, amount) {
+			if (
+				context.state.credit >=
+				context.state.classes[context.state.class]
+					.health *
+					amount
+			) {
+				context.commit(
+					'removeCredit',
+					context.state.classes[
+						context.state.class
+					].health * amount
+				);
+
+				if (amount == 100) {
+					context.commit('fullHeal');
+				} else if (amount == 50) {
+					context.commit('halfHeal');
+				} else {
+					context.commit('quarterHeal');
+				}
+			}
+		},
+
 		// upgrade Demage
 
 		upgradeDemage(context) {
