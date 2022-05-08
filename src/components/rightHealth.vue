@@ -19,7 +19,7 @@
 				<p>500 DM</p>
 			</div>
 			<img
-				:src="require('@/assets/img/monks/01.png')"
+				:src="require('@/assets/img/class/01.png')"
 				alt=""
 			/>
 		</div>

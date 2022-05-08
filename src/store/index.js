@@ -15,16 +15,16 @@ const vuexLocal = new VuexPersistence({
 		bloonHp: state.bloonHp,
 		inifinityMode: state.inifinityMode,
 
-		timeStamp: state.timeStamp,
 		playerHp: state.playerHp,
-
-		cash: state.cash,
 
 		// time
 		seconds: state.seconds,
 		minutes: state.minutes,
 		hours: state.hours,
 		days: state.days,
+
+		// afk
+		timeStamp: state.timeStamp,
 
 		timeSpeed: state.timeSpeed,
 		pause: state.pause,
@@ -41,6 +41,10 @@ const vuexLocal = new VuexPersistence({
 
 		victoryData: state.victoryData,
 		manual: state.manual,
+
+		// farms and cash
+		credit: state.credit,
+		farms: state.farms,
 	}),
 });
 
@@ -61,20 +65,20 @@ export default new Vuex.Store({
 		hours: 0,
 		days: 0,
 
+		// afk
+		timeStamp: '',
+
 		// cash
-		credit: 0,
+		credit: 10000000,
 
 		// round system
 		bloonsRounds: [],
+		farmLevels: [],
 
 		// saved in vuex
 		round: 0,
 		serial: 1,
 		bloonHp: 3,
-
-		timeStamp: '',
-
-		cash: 0,
 
 		// bloon control
 		destroyed: false,
@@ -99,6 +103,11 @@ export default new Vuex.Store({
 		// demage timers
 		hpRegularDemageTimer: 5,
 		hpBloonDemageTimer: 5,
+
+		// farming
+		farms: [0, 0, 0, 0, 0],
+		openFarm: false,
+		currentFarm: 0,
 	},
 
 	mutations: {
@@ -271,6 +280,9 @@ export default new Vuex.Store({
 
 			// player hp
 			state.playerHp = 10;
+
+			// money
+			state.credit = 10000000;
 		},
 
 		// audio
@@ -306,6 +318,54 @@ export default new Vuex.Store({
 		},
 		resethpBloonDemageTimer(state) {
 			state.hpBloonDemageTimer = 5;
+		},
+
+		// afk time controll
+		createTimeStamp(state) {
+			state.timeStamp = Date.now();
+		},
+		addAfkScore(state) {
+			let seconds = Math.floor(
+				(Date.now() - state.timeStamp) / 1000
+			);
+
+			/// add time to the timer
+			// days
+			let days = 0;
+			if (seconds / 86400 >= 1) {
+				days = Math.floor(seconds / 86400);
+				seconds -= 86400 * days;
+			}
+
+			// hours
+			let hours = 0;
+			if (seconds / 3600 >= 1) {
+				hours = Math.floor(seconds / 3600);
+				seconds -= 3600 * hours;
+			}
+
+			// minutes
+			let minutes = 0;
+			if (seconds / 60 >= 1) {
+				minutes = Math.floor(seconds / 60);
+				seconds -= 60 * minutes;
+			}
+
+			console.log(days, hours, minutes, seconds);
+
+			/// remove hp
+
+			// once per three hours
+			if (!state.pause) {
+				if (hours / 3 >= 1) {
+					state.playerHp -=
+						Math.floor(hours / 3) *
+						state.bloonsRounds[state.round]
+							.demage;
+				}
+			}
+
+			/// add cash -> farms only
 		},
 	},
 	actions: {
@@ -416,6 +476,13 @@ export default new Vuex.Store({
 			if (context.state.bloonHp <= 0) {
 				// reset demage timer
 				context.commit('resethpBloonDemageTimer');
+				// add cash for destroyed bloon
+				context.commit(
+					'addCredit',
+					context.state.bloonsRounds[
+						context.state.round
+					].reward
+				);
 				// series
 				if (
 					context.state.serial + 1 >

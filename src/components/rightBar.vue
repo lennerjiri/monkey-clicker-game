@@ -22,87 +22,14 @@
 			<div
 				class="body__rightPanelBuildings__build selectBox"
 			>
-				<p>Buildings</p>
-				<div
-					class="body__rightPaneBuilding__build--selectBuilding"
-				>
-					<img
-						src="@/assets/img/building/400-BananaFarm.png"
-						alt=""
-					/>
-				</div>
-			</div>
-			<div
-				class="body__rightPanelBuildings__build selectBox"
-			>
-				<div
-					class="body__rightPaneBuilding__build--selectBuilding"
-				>
-					<img
-						src="@/assets/img/building/100-BananaFarm.png"
-						alt=""
-					/>
-				</div>
-			</div>
-			<div
-				class="body__rightPanelBuildings__build selectBox"
-			>
-				<div
-					class="body__rightPaneBuilding__build--selectBuilding"
-				>
-					<font-awesome-icon
-						icon="fa-solid fa-plus"
-					/>
-					<!-- <img
-						src="@/assets/img/building/pngwing.com.png"
-						alt=""
-					/> -->
-				</div>
-			</div>
-			<div
-				class="body__rightPanelBuildings__build selectBox"
-			>
-				<div
-					class="body__rightPaneBuilding__build--selectBuilding"
-				>
-					<font-awesome-icon
-						icon="fa-solid fa-plus"
-					/>
-					<!-- <img
-						src="@/assets/img/building/pngwing.com.png"
-						alt=""
-					/> -->
-				</div>
-			</div>
-			<div
-				class="body__rightPanelBuildings__build selectBox"
-			>
-				<div
-					class="body__rightPaneBuilding__build--selectBuilding"
-				>
-					<font-awesome-icon
-						icon="fa-solid fa-plus"
-					/>
-					<!-- <img
-						src="@/assets/img/building/pngwing.com.png"
-						alt=""
-					/> -->
-				</div>
-			</div>
-			<div
-				class="body__rightPanelBuildings__build selectBox"
-			>
-				<div
-					class="body__rightPaneBuilding__build--selectBuilding"
-				>
-					<font-awesome-icon
-						icon="fa-solid fa-plus"
-					/>
-					<!-- <img
-						src="@/assets/img/building/pngwing.com.png"
-						alt=""
-					/> -->
-				</div>
+				<p>FARMS</p>
+				<farm
+					v-for="(farm, index) of this.$store
+						.state.farms"
+					:key="index"
+					:index="index"
+					:farm="farm"
+				/>
 			</div>
 		</div>
 
@@ -130,6 +57,7 @@
 </template>
 
 <script>
+import farm from '@/components/farm.vue';
 export default {
 	name: 'rightBar',
 	methods: {
@@ -143,6 +71,9 @@ export default {
 				this.$store.commit('playAudio');
 			}
 		},
+	},
+	components: {
+		farm,
 	},
 };
 </script>

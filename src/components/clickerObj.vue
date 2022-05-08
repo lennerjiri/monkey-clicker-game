@@ -35,7 +35,7 @@
 
 		<img
 			class="body__main__monk"
-			src="@/assets/img/monks/01.png"
+			src="@/assets/img/class/01.png"
 			@click="click(), runAnimation()"
 			alt=""
 			ondragstart="return false;"

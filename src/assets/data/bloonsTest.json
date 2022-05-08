@@ -11,7 +11,7 @@
 	{
 		"name": "BLUE",
 		"hp": 3,
-		"reward": 1,
+		"reward": 2,
 		"serial": 3,
 		"img": "02.png",
 		"background": "02.webp",
@@ -20,7 +20,7 @@
 	{
 		"name": "GREEN",
 		"hp": 3,
-		"reward": 1,
+		"reward": 3,
 		"serial": 3,
 		"img": "03.png",
 		"background": "03.webp",

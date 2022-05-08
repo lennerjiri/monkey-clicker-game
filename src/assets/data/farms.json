@@ -1,0 +1,32 @@
+[
+	{
+		"name": "Increased production",
+		"price": "100",
+		"production": "1",
+		"img": ""
+	},
+	{
+		"name": "Greater production",
+		"price": "1000",
+		"production": "10",
+		"img": ""
+	},
+	{
+		"name": "Banana plantation",
+		"price": "100000",
+		"production": "100",
+		"img": ""
+	},
+	{
+		"name": "Banana factory",
+		"price": "1000000",
+		"production": "1000",
+		"img": ""
+	},
+	{
+		"name": "Banana super factory",
+		"price": "10000000",
+		"production": "10000",
+		"img": ""
+	}
+]

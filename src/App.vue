@@ -1,5 +1,7 @@
 <template>
 	<div id="app">
+		<!-- factoryMenu -->
+		<farmMenu v-if="false" />
 		<!-- Defeat -->
 		<defeat v-if="this.$store.state.defeat" />
 		<!-- Game Manual -->
@@ -46,6 +48,7 @@ import rightHealth from '@/components/rightHealth.vue';
 import victory from '@/components/victory.vue';
 import manual from '@/components/manual.vue';
 import defeat from '@/components/defeat.vue';
+import farmMenu from '@/components/farmMenu.vue';
 
 import data from './assets/data/bloonsTest.json';
 
@@ -62,6 +65,7 @@ export default {
 		victory,
 		manual,
 		defeat,
+		farmMenu,
 	},
 	data() {
 		return {
@@ -93,9 +97,16 @@ export default {
 				this.$store.dispatch('timeTick');
 			}
 		},
+		beforePageDestroyed() {
+			this.$store.commit('createTimeStamp');
+		},
 	},
 	created() {
 		this.$store.commit('setupData', data);
+		window.addEventListener(
+			'beforeunload',
+			this.beforePageDestroyed
+		);
 	},
 	mounted() {
 		if (this.$store.state.victory) {
@@ -110,11 +121,14 @@ export default {
 		setInterval(this.timeTick2x, 500);
 		setInterval(this.timeTick3x, 250);
 		this.audio = new Audio('/audio/monk.mp4');
+
+		this.$store.commit('addAfkScore');
 	},
 	watch: {
 		'$store.state.audioPlaying'(playing) {
 			if (playing) {
 				this.audio.play();
+				this.audio.loop = true;
 			} else {
 				this.audio.pause();
 			}

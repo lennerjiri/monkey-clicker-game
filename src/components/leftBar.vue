@@ -17,7 +17,7 @@
 		</div>
 		<!--Content -->
 		<div class="body__leftPanelUser__weapons selectBox">
-			<p>Weapon</p>
+			<p>POWER</p>
 			<div
 				class="body__leftPanelUser__weapons--weaponUpgrade"
 			>
