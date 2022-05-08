@@ -60,6 +60,11 @@ const vuexLocal = new VuexPersistence({
 		// class
 		class: state.class,
 		openClass: state.openClass,
+
+		// power
+		openPower: state.openPower,
+		demage: state.demage,
+		demagePrice: state.demagePrice,
 	}),
 });
 
@@ -138,6 +143,8 @@ export default new Vuex.Store({
 
 		// demage
 		demage: 1,
+		demagePrice: 100,
+		openPower: false,
 	},
 
 	mutations: {
@@ -314,6 +321,14 @@ export default new Vuex.Store({
 			state.defeat = false;
 			state.pause = false;
 		},
+		openPower(state) {
+			state.openPower = true;
+			state.pause = true;
+		},
+		closePower(state) {
+			state.openPower = false;
+			state.pause = false;
+		},
 
 		openManual(state) {
 			state.manual = true;
@@ -379,6 +394,10 @@ export default new Vuex.Store({
 
 			// class
 			state.class = 0;
+
+			// power
+			state.demage = 1;
+			state.demagePrice = 100;
 		},
 
 		// audio
@@ -494,8 +513,31 @@ export default new Vuex.Store({
 		upgradeClass(state) {
 			state.class += 1;
 		},
+		// demage
+		increaseDemagePrice(state) {
+			state.demagePrice = state.demagePrice * 2;
+		},
+		upgradeDemage(state) {
+			state.demage = state.demage * 2;
+		},
 	},
 	actions: {
+		// upgrade Demage
+
+		upgradeDemage(context) {
+			if (
+				context.state.credit >=
+				context.state.demagePrice
+			) {
+				context.commit(
+					'removeCredit',
+					context.state.demagePrice
+				);
+				context.commit('increaseDemagePrice');
+				context.commit('upgradeDemage');
+			}
+		},
+
 		// FARMS
 		upgradeFarm(context) {
 			// check credit
@@ -648,7 +690,7 @@ export default new Vuex.Store({
 			}
 		},
 		click(context) {
-			const demage = 1;
+			const demage = context.state.demage;
 			context.commit('reduceBloonHp', demage);
 
 			// demage timer reset for 5 sec

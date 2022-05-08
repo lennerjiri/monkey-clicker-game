@@ -86,7 +86,11 @@ export default {
 				!this.$store.state.pause &&
 				!this.$store.state.destroyed
 			) {
-				if (this.$store.state.bloonHp - 1 === 0) {
+				if (
+					this.$store.state.bloonHp -
+						this.$store.state.demage <=
+					0
+				) {
 					this.explosion = true;
 					this.$store.commit('bloonDestroyed');
 

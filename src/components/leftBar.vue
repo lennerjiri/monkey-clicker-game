@@ -20,6 +20,7 @@
 			<p>POWER</p>
 			<div
 				class="body__leftPanelUser__weapons--weaponUpgrade"
+				@click="openPower"
 			>
 				<img
 					:src="
@@ -91,6 +92,9 @@ export default {
 	methods: {
 		openClass() {
 			this.$store.commit('openClass');
+		},
+		openPower() {
+			this.$store.commit('openPower');
 		},
 	},
 };

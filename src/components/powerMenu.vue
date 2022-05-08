@@ -1,74 +1,43 @@
 <template>
-	<div class="body__classMenu__background">
+	<div class="body__powerMenu__background">
 		<div
-			class="classMenu__background__contentContainer"
+			class="powerMenu__background__contentContainer"
 		>
 			<div
-				@click="closeClassMenu"
+				@click="closePowerMenu"
 				class="contentContainer__close"
 			>
 				<font-awesome-icon
 					icon="fa-solid fa-xmark"
 				/>
 			</div>
-			<h1>CLASS</h1>
+			<h1>POWER</h1>
 			<div
-				class="contentContainer__maxLevel"
-				v-if="this.$store.state.class === 5"
-			>
-				MAX LEVEL
-			</div>
-			<div
-				v-if="!(this.$store.state.class === 5)"
 				class="contentContainer__upgradeButton"
 				:class="{
 					contentContainer__upgradeButton___unavailable:
 						this.$store.state.credit <
-						this.$store.state.classes[
-							this.$store.state.class + 1
-						].price,
+						this.$store.state.demagePrice,
 				}"
-				@click="upgradeClass"
+				@click="upgradeDemage"
 			>
 				<div class="upgradeButton__imgAndInfo">
 					<img
 						:src="
-							require(`@/assets/img/class/${
+							require(`@/assets/img/weapons/${
 								this.$store.state.classes[
-									this.$store.state
-										.class + 1
-								].img
+									this.$store.state.class
+								].weaponImg
 							}`)
 						"
 						alt=""
 					/>
 					<div>
-						<h2>
-							{{
-								this.$store.state.classes[
-									this.$store.state
-										.class + 1
-								].name
-							}}
-						</h2>
+						<h2>INCREASE POWER</h2>
+
 						<p>
-							MAX HP:
-							{{
-								this.$store.state.classes[
-									this.$store.state
-										.class + 1
-								].health
-							}}
-						</p>
-						<p>
-							CHARGE TIMER:
-							{{
-								this.$store.state.classes[
-									this.$store.state
-										.class + 1
-								].chargeBoost
-							}}
-							s
+							DEMAGE +
+							{{ this.$store.state.demage }}
 						</p>
 					</div>
 				</div>
@@ -77,16 +46,10 @@
 					:class="{
 						upgradeButton__price___unavailable:
 							this.$store.state.credit <
-							this.$store.state.classes[
-								this.$store.state.class + 1
-							].price,
+							this.$store.state.demagePrice,
 					}"
 				>
-					{{
-						this.$store.state.classes[
-							this.$store.state.class + 1
-						].price
-					}}$
+					{{ this.$store.state.demagePrice }}$
 				</div>
 			</div>
 		</div>
@@ -98,11 +61,11 @@ export default {
 	name: 'classMenu',
 	computed: {},
 	methods: {
-		closeClassMenu() {
-			this.$store.commit('closeClass');
+		closePowerMenu() {
+			this.$store.commit('closePower');
 		},
-		upgradeClass() {
-			this.$store.dispatch('upgradeClass');
+		upgradeDemage() {
+			this.$store.dispatch('upgradeDemage');
 		},
 	},
 };
