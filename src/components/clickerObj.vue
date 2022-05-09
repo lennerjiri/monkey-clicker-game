@@ -88,8 +88,25 @@ export default {
 			) {
 				if (
 					this.$store.state.bloonHp -
+						this.$store.state.demage *
+							this.$store.state.classes[
+								this.$store.state.class
+							].chargeBoost <=
+						0 &&
+					this.$store.state.charge
+				) {
+					this.explosion = true;
+					this.$store.commit('bloonDestroyed');
+
+					// run in few secs
+					setTimeout(() => {
+						this.explosion = false;
+					}, 200);
+				} else if (
+					this.$store.state.bloonHp -
 						this.$store.state.demage <=
-					0
+						0 &&
+					!this.$store.state.charge
 				) {
 					this.explosion = true;
 					this.$store.commit('bloonDestroyed');
