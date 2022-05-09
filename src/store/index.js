@@ -525,12 +525,32 @@ export default new Vuex.Store({
 				state.classes[state.class].health;
 		},
 		halfHeal(state) {
-			state.playerHp +=
-				state.classes[state.class].health / 2;
+			if (
+				state.playerHp +
+					state.classes[state.class].health / 2 >
+				state.classes[state.class].health
+			) {
+				state.playerHp =
+					state.classes[state.class].health;
+			} else {
+				state.playerHp +=
+					state.classes[state.class].health / 2;
+			}
 		},
 		quarterHeal(state) {
-			state.playerHp +=
-				state.classes[state.class].health / 4;
+			if (
+				state.playerHp +
+					state.classes[state.class].health / 4 >
+				state.classes[state.class].health
+			) {
+				state.playerHp =
+					state.classes[state.class].health;
+			} else {
+				state.playerHp +=
+					state.classes[state.class].health / 4;
+			}
+
+			s;
 		},
 
 		// class
