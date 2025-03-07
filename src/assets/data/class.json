@@ -1,6 +1,6 @@
 [
 	{
-		"name": "Monk",
+		"name": "Arrow",
 		"health": 10,
 		"chargeBoost": 2,
 		"img": "01.webp",
